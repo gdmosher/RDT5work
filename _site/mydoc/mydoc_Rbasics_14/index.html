@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title>Analysis Routine  | Your site_title</title>
+<link rel="stylesheet" href="/RDT5/css/syntax.css">
+
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="/RDT5/css/modern-business.css">
+<link rel="stylesheet" href="/RDT5/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="/RDT5/css/customstyles.css">
+<link rel="stylesheet" href="/RDT5/css/theme-blue.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="/RDT5/js/jquery.navgoco.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="/RDT5/js/toc.js"></script>
+<script src="/RDT5/js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="/RDT5/images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="" href="http://YourDomainName.com/RDT5/feed.xml">
+
+
+
+
+ 
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="/RDT5/">&nbsp;<span class="projectTitle"> Your Topnav_title</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                
+                
+                
+                <li><a href="http://girke.bioinformatics.ucr.edu/" class="btn btn-default navbar-btn cursorNorm" role="button" target="_blank">Home</a></li>
+                
+                
+                
+                <li><a href="http://manuals.bioinformatics.ucr.edu/home/programming-in-r/vim-r" class="btn btn-default navbar-btn cursorNorm" role="button" target="_blank">vimR</a></li>
+                
+                
+                
+                <li><a href="http://www.genomics.ucr.edu/" class="btn btn-default navbar-btn cursorNorm" role="button" target="_blank">IIGB</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Your Resources<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li><a href="https://github.com/YourGitHubID/YourRepoName" target="_blank">Github Repo</a></li>
+                        
+                        
+                        
+                        <li><a href="https://talk.jekyllrb.com" target="_blank">Jekyll Talk</a></li>
+                        
+                        
+                        
+                        <li><a href="http://jekyllrb.com/docs/home/" target="_blank">Jekyll documentation</a></li>
+                        
+                        
+                        
+                        <li><a href="http://stackoverflow.com/questions/tagged/jekyll" target="_blank">Jekyll on Stack Overflow</a></li>
+                        
+                        
+                        
+                        <li><a href="http://idratherbewriting.com/category-jekyll/" target="_blank">Jekyll on my blog</a></li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li class="dropdownActive"><a href="/RDT5/">Your Home Page</a></li>
+                        
+                        
+                        
+                        <li><a href="/RDT5/p1_landing_page/">Product 1</a></li>
+                        
+                        
+                        
+                        <li><a href="/RDT5/p2_landing_page/">Product 2</a></li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+			<!-- Send feedback function -->
+<script>
+function SendLinkByMail(href) {
+var subject= "Your site_title feedback";
+var body = "I have some feedback about the Analysis Routine page: ";
+body += window.location.href;
+body += "";
+var uri = "mailto:YourEmailAddress@provider.com?subject=";
+uri += encodeURIComponent(subject);
+uri += "&body=";
+uri += encodeURIComponent(body);
+window.location.href = uri;
+}
+</script>
+
+<li><a href="javascript:(function()%7BSendLinkByMail()%3B%7D)()%3B" target="_blank"><i class="fa fa-envelope-o"></i> Feedback</a></li>
+
+		
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="/RDT5/js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: '/RDT5/search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="Analysis Routine">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+<!-- Page Content -->
+<div class="container">
+    <div class="col-lg-12">&nbsp;</div>
+    <!-- Content Row -->
+    <div class="row">
+        <!-- Sidebar Column -->
+        <div class="col-md-3">
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">Your Product 1.0</li>
+    
+    
+    
+        
+    
+    <li>
+        <a href="#">Overview</a>
+        <ul>
+            
+            
+            
+            <li><a href="/RDT5/">Get started</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/README/">README</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Introduction</a>
+        <ul>
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_01/">1. Overview</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_02/">2. R Package Repositories</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_03/">3. Installation of R and Add-on Packages</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_04/">4. Getting Around</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_05/">5. Basic Syntax</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_06/">6. Data Types</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_07/">7. Data objects</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_08/">8. Important Utilities</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_09/">9. Operators and Calculations</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_10/">10. Reading and Writing External Data</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_11/">11. Useful R Functions</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_12/">12. SQLite Databases</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_13/">13. Graphics in R</a></li>
+            
+            
+            
+            
+            
+            
+            <li class="active"><a href="/RDT5/mydoc/mydoc_Rbasics_14/">14. Analysis Routine</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_15/">15. R Markdown</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_16/">16. Session Info</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_17/">17. References</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">R</a>
+        <ul>
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rgraphics_1/">1. Overview</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rgraphics_2/">2. Base Graphics</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rgraphics_3/">3. Grid Graphics</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rgraphics_4/">4. lattice Graphics</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rgraphics_5/">5. ggplot2 Graphics</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rgraphics_6/">6. Specialty Graphics</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rgraphics_7/">7. Genome Graphics</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rgraphics_8/">8. References</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">ChemmineR</a>
+        <ul>
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_01/">1. Introduction</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_02/">2. Getting Started</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_03/">3. OpenBabel Functions</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_04/">4. Overview of Classes and Functions</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_05/">5. Import of Compounds</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_06/">6. Export of Compounds</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_07/">7. Format Interconversions</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_08/">8. Splitting SD Files</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_09/">9. Streaming Through Large SD Files</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_10/">10. Storing Compounds in an SQL Database</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_11/">11. Working with SDF/SDFset Classes</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_12/">12. Molecular Property Functions (Physicochemical Descriptors)</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_13/">13. Bond Matrices</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_14/">14. Charges and Missing Hydrogens</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_15/">15. Ring Perception and Aromaticity Assignment</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_16/">16. Rendering Chemical Structure Images</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_17/">17. Similarity Comparisons and Searching</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_18/">18. Clustering</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_19/">19. Searching PubChem</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_20/">20. ChemMine Tools R Interface</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_21/">21. Version Information</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_22/">22. Funding</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_23/">23. References</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+        
+        <!-- if you aren't using the accordion, uncomment this block:
+           <p class="external">
+               <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+           </p>
+           -->
+    </li>
+</ul>
+</div>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+    <!-- Content Column -->
+    <div class="col-md-9">
+        <div class="post-header">
+   <h1 class="post-title-main">Analysis Routine</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+
+    
+
+    
+
+    <a target="_blank" href="https://github.com/YourGithubID/YourGithubRepositoryName/blob/gh-pages//mydocmydoc_Rbasics_14.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+    
+
+    
+
+  <h2 id="overview">Overview</h2>
+
+<p>The following exercise introduces a variety of useful data analysis utilities in R.</p>
+
+<h2 id="analysis-routine-data-import">Analysis Routine: Data Import</h2>
+
+<ul>
+  <li>
+    <p><strong>Step 1</strong>: To get started with this exercise, direct your R session to a dedicated workshop directory and download into this directory the following sample tables. Then import the files into Excel and save them as tab delimited text files.</p>
+
+    <ul>
+      <li><a href="http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/Samples/MolecularWeight_tair7.xls">MolecularWeight_tair7.xls</a></li>
+      <li><a href="http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/Samples/TargetP_analysis_tair7.xls">TargetP_analysis_tair7.xls</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Import the tables into R</strong></p>
+
+<p>Import molecular weight table</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">my_mw</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">read.delim</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s2">"MolecularWeight_tair7.xls"</span><span class="p">,</span><span class="w"> </span><span class="n">header</span><span class="o">=</span><span class="nb">T</span><span class="p">,</span><span class="w"> </span><span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">)</span><span class="w"> 
+</span><span class="n">my_mw</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,]</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Import subcelluar targeting table</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">my_target</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">read.delim</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s2">"TargetP_analysis_tair7.xls"</span><span class="p">,</span><span class="w"> </span><span class="n">header</span><span class="o">=</span><span class="nb">T</span><span class="p">,</span><span class="w"> </span><span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">)</span><span class="w"> 
+</span><span class="n">my_target</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,]</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Online import of molecular weight table</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">my_mw</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">read.delim</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s2">"http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/Samples/MolecularWeight_tair7.xls"</span><span class="p">,</span><span class="w"> </span><span class="n">header</span><span class="o">=</span><span class="nb">T</span><span class="p">,</span><span class="w"> </span><span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">)</span><span class="w"> 
+</span><span class="n">my_mw</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,]</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>##   Sequence.id Molecular.Weight.Da. Residues
+## 1 AT1G08520.1                83285      760
+## 2 AT1G08530.1                27015      257
+</code></pre>
+</div>
+
+<p>Online import of subcelluar targeting table</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">my_target</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">read.delim</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s2">"http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/Samples/TargetP_analysis_tair7.xls"</span><span class="p">,</span><span class="w"> </span><span class="n">header</span><span class="o">=</span><span class="nb">T</span><span class="p">,</span><span class="w"> </span><span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">)</span><span class="w"> 
+</span><span class="n">my_target</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,]</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>##      GeneName Loc   cTP   mTP    SP other
+## 1 AT1G08520.1   C 0.822 0.137 0.029 0.039
+## 2 AT1G08530.1   C 0.817 0.058 0.010 0.100
+</code></pre>
+</div>
+
+<h2 id="merging-data-frames">Merging Data Frames</h2>
+
+<ul>
+  <li><strong>Step 2</strong>: Assign uniform gene ID column titles</li>
+</ul>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">colnames</span><span class="p">(</span><span class="n">my_target</span><span class="p">)[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s2">"ID"</span><span class="w">
+</span><span class="n">colnames</span><span class="p">(</span><span class="n">my_mw</span><span class="p">)[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s2">"ID"</span><span class="w"> 
+</span></code></pre>
+</div>
+
+<ul>
+  <li><strong>Step 3</strong>: Merge the two tables based on common ID field</li>
+</ul>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">my_mw_target</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">merge</span><span class="p">(</span><span class="n">my_mw</span><span class="p">,</span><span class="w"> </span><span class="n">my_target</span><span class="p">,</span><span class="w"> </span><span class="n">by.x</span><span class="o">=</span><span class="s2">"ID"</span><span class="p">,</span><span class="w"> </span><span class="n">by.y</span><span class="o">=</span><span class="s2">"ID"</span><span class="p">,</span><span class="w"> </span><span class="n">all.x</span><span class="o">=</span><span class="nb">T</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<ul>
+  <li><strong>Step 4</strong>: Shorten one table before the merge and then remove the non-matching rows (NAs) in the merged file</li>
+</ul>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">my_mw_target2a</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">merge</span><span class="p">(</span><span class="n">my_mw</span><span class="p">,</span><span class="w"> </span><span class="n">my_target</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">40</span><span class="p">,],</span><span class="w"> </span><span class="n">by.x</span><span class="o">=</span><span class="s2">"ID"</span><span class="p">,</span><span class="w"> </span><span class="n">by.y</span><span class="o">=</span><span class="s2">"ID"</span><span class="p">,</span><span class="w"> </span><span class="n">all.x</span><span class="o">=</span><span class="nb">T</span><span class="p">)</span><span class="w">  </span><span class="c1"># To remove non-matching rows, use the argument setting 'all=F'.
+</span><span class="n">my_mw_target2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">na.omit</span><span class="p">(</span><span class="n">my_mw_target2a</span><span class="p">)</span><span class="w"> </span><span class="c1"># Removes rows containing "NAs" (non-matching rows).
+</span></code></pre>
+</div>
+
+<ul>
+  <li><strong>Homework 3D</strong>: How can the merge function in the previous step be executed so that only the common rows among the two data frames are returned? Prove that both methods - the two step version with <code class="highlighter-rouge">na.omit</code> and your method - return identical results.</li>
+  <li><strong>Homework 3E</strong>: Replace all <code class="highlighter-rouge">NAs</code> in the data frame <code class="highlighter-rouge">my_mw_target2a</code> with zeros.</li>
+</ul>
+
+<h2 id="filtering-data">Filtering Data</h2>
+
+<ul>
+  <li><strong>Step 5</strong>: Retrieve all records with a value of greater than 100,000 in ‘MW’ column and ‘C’ value in ‘Loc’ column (targeted to chloroplast).</li>
+</ul>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">query</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">my_mw_target</span><span class="p">[</span><span class="n">my_mw_target</span><span class="p">[,</span><span class="w"> </span><span class="m">2</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">100000</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">my_mw_target</span><span class="p">[,</span><span class="w"> </span><span class="m">4</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"C"</span><span class="p">,</span><span class="w"> </span><span class="p">]</span><span class="w"> 
+</span><span class="n">query</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>##              ID Molecular.Weight.Da. Residues Loc   cTP   mTP    SP other
+## 219 AT1G02730.1               132588     1181   C 0.972 0.038 0.008 0.045
+## 243 AT1G02890.1               136825     1252   C 0.748 0.529 0.011 0.013
+## 281 AT1G03160.1               100732      912   C 0.871 0.235 0.011 0.007
+## 547 AT1G05380.1               126360     1138   C 0.740 0.099 0.016 0.358
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="nf">dim</span><span class="p">(</span><span class="n">query</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] 170   8
+</code></pre>
+</div>
+
+<ul>
+  <li><strong>Homework 3F</strong>: How many protein entries in the <code class="highlighter-rouge">my</code>_mw<code class="highlighter-rouge">_target</code> data frame have a MW of greater then 4,000 and less then 5,000. Subset the data frame accordingly and sort it by MW to check that your result is correct.</li>
+</ul>
+
+<h2 id="string-substitutions">String Substitutions</h2>
+
+<ul>
+  <li><strong>Step 6</strong>: Use a regular expression in a substitute function to generate a separate ID column that lacks the gene model extensions.
+«label=Exercise 4.7, eval=TRUE, echo=TRUE, keep.source=TRUE»=</li>
+</ul>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">my_mw_target3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data.frame</span><span class="p">(</span><span class="n">loci</span><span class="o">=</span><span class="n">gsub</span><span class="p">(</span><span class="s2">"\\..*"</span><span class="p">,</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="nf">as.character</span><span class="p">(</span><span class="n">my_mw_target</span><span class="p">[,</span><span class="m">1</span><span class="p">]),</span><span class="w"> </span><span class="n">perl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">),</span><span class="w"> </span><span class="n">my_mw_target</span><span class="p">)</span><span class="w">
+</span><span class="n">my_mw_target3</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">8</span><span class="p">]</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>##        loci          ID Molecular.Weight.Da. Residues Loc  cTP   mTP    SP
+## 1 AT1G01010 AT1G01010.1                49426      429   _ 0.10 0.090 0.075
+## 2 AT1G01020 AT1G01020.1                28092      245   * 0.01 0.636 0.158
+## 3 AT1G01020 AT1G01020.2                21711      191   * 0.01 0.636 0.158
+</code></pre>
+</div>
+
+<ul>
+  <li><strong>Homework 3G</strong>: Retrieve those rows in <code class="highlighter-rouge">my_mw_target3</code> where the second column contains the following identifiers: <code class="highlighter-rouge">c("AT5G52930.1", "AT4G18950.1", "AT1G15385.1", "AT4G36500.1", "AT1G67530.1")</code>. Use the <code class="highlighter-rouge">%in%</code> function for this query. As an alternative approach, assign the second column to the row index of the data frame and then perform the same query again using the row index. Explain the difference of the two methods.</li>
+</ul>
+
+<h2 id="calculations-on-data-frames">Calculations on Data Frames</h2>
+
+<ul>
+  <li><strong>Step 7</strong>: Count the number of duplicates in the loci column with the <code class="highlighter-rouge">table</code> function and append the result to the data frame with the <code class="highlighter-rouge">cbind</code> function.</li>
+</ul>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">mycounts</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">table</span><span class="p">(</span><span class="n">my_mw_target3</span><span class="p">[,</span><span class="m">1</span><span class="p">])[</span><span class="n">my_mw_target3</span><span class="p">[,</span><span class="m">1</span><span class="p">]]</span><span class="w">
+</span><span class="n">my_mw_target4</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">cbind</span><span class="p">(</span><span class="n">my_mw_target3</span><span class="p">,</span><span class="w"> </span><span class="n">Freq</span><span class="o">=</span><span class="n">mycounts</span><span class="p">[</span><span class="nf">as.character</span><span class="p">(</span><span class="n">my_mw_target3</span><span class="p">[,</span><span class="m">1</span><span class="p">])])</span><span class="w"> 
+</span></code></pre>
+</div>
+
+<ul>
+  <li><strong>Step 8</strong>: Perform a vectorized devision of columns 3 and 4 (average AA weight per protein)</li>
+</ul>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">data.frame</span><span class="p">(</span><span class="n">my_mw_target4</span><span class="p">,</span><span class="w"> </span><span class="n">avg_AA_WT</span><span class="o">=</span><span class="p">(</span><span class="n">my_mw_target4</span><span class="p">[,</span><span class="m">3</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">my_mw_target4</span><span class="p">[,</span><span class="m">4</span><span class="p">]))[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span><span class="m">5</span><span class="o">:</span><span class="m">11</span><span class="p">]</span><span class="w"> 
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>##   Loc  cTP   mTP    SP other Freq avg_AA_WT
+## 1   _ 0.10 0.090 0.075 0.925    1  115.2121
+## 2   * 0.01 0.636 0.158 0.448    2  114.6612
+</code></pre>
+</div>
+
+<ul>
+  <li><strong>Step 9</strong>: Calculate for each row the mean and standard deviation across several columns</li>
+</ul>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">mymean</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">apply</span><span class="p">(</span><span class="n">my_mw_target4</span><span class="p">[,</span><span class="m">6</span><span class="o">:</span><span class="m">9</span><span class="p">],</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="p">)</span><span class="w">
+</span><span class="n">mystdev</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">apply</span><span class="p">(</span><span class="n">my_mw_target4</span><span class="p">[,</span><span class="m">6</span><span class="o">:</span><span class="m">9</span><span class="p">],</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">sd</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span><span class="w">
+</span><span class="n">data.frame</span><span class="p">(</span><span class="n">my_mw_target4</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="o">=</span><span class="n">mymean</span><span class="p">,</span><span class="w"> </span><span class="n">stdev</span><span class="o">=</span><span class="n">mystdev</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span><span class="m">5</span><span class="o">:</span><span class="m">12</span><span class="p">]</span><span class="w"> 
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>##   Loc  cTP   mTP    SP other Freq   mean     stdev
+## 1   _ 0.10 0.090 0.075 0.925    1 0.2975 0.4184595
+## 2   * 0.01 0.636 0.158 0.448    2 0.3130 0.2818912
+</code></pre>
+</div>
+
+<h2 id="plotting-example">Plotting Example</h2>
+
+<ul>
+  <li><strong>Step 10</strong>: Generate scatter plot columns: ‘MW’ and ‘Residues’</li>
+</ul>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">plot</span><span class="p">(</span><span class="n">my_mw_target4</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">500</span><span class="p">,</span><span class="m">3</span><span class="o">:</span><span class="m">4</span><span class="p">],</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="s2">"red"</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><img src="../Rbasics_files/plot_example-1.png" alt="" /></p>
+
+<h2 id="export-results-and-run-entire-exercise-as-script">Export Results and Run Entire Exercise as Script</h2>
+
+<ul>
+  <li><strong>Step 11</strong>: Write the data frame <code class="highlighter-rouge">my_mw_target4</code> into a tab-delimited text file and inspect it in Excel.</li>
+</ul>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">write.table</span><span class="p">(</span><span class="n">my_mw_target4</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="o">=</span><span class="s2">"my_file.xls"</span><span class="p">,</span><span class="w"> </span><span class="n">quote</span><span class="o">=</span><span class="nb">F</span><span class="p">,</span><span class="w"> </span><span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">,</span><span class="w"> </span><span class="n">col.names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NA</span><span class="p">)</span><span class="w"> 
+</span></code></pre>
+</div>
+
+<ul>
+  <li><strong>Homework 3H</strong>: Write all commands from this exercise into an R script named <code class="highlighter-rouge">exerciseRbasics.R</code>, or download it from <a href="http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/My_R_Scripts/exerciseRbasics.R">here</a>. Then execute the script with the <code class="highlighter-rouge">source</code> function like this: <code class="highlighter-rouge">source("exerciseRbasics.R")</code>. This will run all commands of this exercise and generate the corresponding output files in the current working directory.</li>
+</ul>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">source</span><span class="p">(</span><span class="s2">"exerciseRbasics.R"</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="tags">
+<b>Jump to: </b>
+<a href="/RDT5/mydoc/mydoc_Rbasics_15/" class="btn btn-default navbar-btn cursorNorm" role="button">next_page</a>
+</div>
+
+
+<div class="tags">
+    
+</div>
+
+    
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2016 Your company_name. All rights reserved. <br />
+<p>Page last updated:</span> Tue Jul 12 23:20:55 2016<br/> Site last generated: Jul 19, 2016 <br />
+<p><img src="/RDT5/images/company_logo.png" alt="Company logo"/></p>
+                </div>
+            </div>
+</footer>
+
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+    </div>
+    <script>
+    jQuery(function ($) {
+        $('.post-content').annotator()
+                .annotator('setupPlugins', {tokenUrl: 'http://example.com/api/token'})
+    });
+    </script>
+</body>
+
+</html>

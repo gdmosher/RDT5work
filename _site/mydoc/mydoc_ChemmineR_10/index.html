@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title>Storing Compounds in an SQL Database  | Your site_title</title>
+<link rel="stylesheet" href="/RDT5/css/syntax.css">
+
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="/RDT5/css/modern-business.css">
+<link rel="stylesheet" href="/RDT5/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="/RDT5/css/customstyles.css">
+<link rel="stylesheet" href="/RDT5/css/theme-blue.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="/RDT5/js/jquery.navgoco.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="/RDT5/js/toc.js"></script>
+<script src="/RDT5/js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="/RDT5/images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="" href="http://YourDomainName.com/RDT5/feed.xml">
+
+
+
+
+ 
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="/RDT5/">&nbsp;<span class="projectTitle"> Your Topnav_title</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                
+                
+                
+                <li><a href="http://girke.bioinformatics.ucr.edu/" class="btn btn-default navbar-btn cursorNorm" role="button" target="_blank">Home</a></li>
+                
+                
+                
+                <li><a href="http://manuals.bioinformatics.ucr.edu/home/programming-in-r/vim-r" class="btn btn-default navbar-btn cursorNorm" role="button" target="_blank">vimR</a></li>
+                
+                
+                
+                <li><a href="http://www.genomics.ucr.edu/" class="btn btn-default navbar-btn cursorNorm" role="button" target="_blank">IIGB</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Your Resources<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li><a href="https://github.com/YourGitHubID/YourRepoName" target="_blank">Github Repo</a></li>
+                        
+                        
+                        
+                        <li><a href="https://talk.jekyllrb.com" target="_blank">Jekyll Talk</a></li>
+                        
+                        
+                        
+                        <li><a href="http://jekyllrb.com/docs/home/" target="_blank">Jekyll documentation</a></li>
+                        
+                        
+                        
+                        <li><a href="http://stackoverflow.com/questions/tagged/jekyll" target="_blank">Jekyll on Stack Overflow</a></li>
+                        
+                        
+                        
+                        <li><a href="http://idratherbewriting.com/category-jekyll/" target="_blank">Jekyll on my blog</a></li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li class="dropdownActive"><a href="/RDT5/">Your Home Page</a></li>
+                        
+                        
+                        
+                        <li><a href="/RDT5/p1_landing_page/">Product 1</a></li>
+                        
+                        
+                        
+                        <li><a href="/RDT5/p2_landing_page/">Product 2</a></li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+			<!-- Send feedback function -->
+<script>
+function SendLinkByMail(href) {
+var subject= "Your site_title feedback";
+var body = "I have some feedback about the Storing Compounds in an SQL Database page: ";
+body += window.location.href;
+body += "";
+var uri = "mailto:YourEmailAddress@provider.com?subject=";
+uri += encodeURIComponent(subject);
+uri += "&body=";
+uri += encodeURIComponent(body);
+window.location.href = uri;
+}
+</script>
+
+<li><a href="javascript:(function()%7BSendLinkByMail()%3B%7D)()%3B" target="_blank"><i class="fa fa-envelope-o"></i> Feedback</a></li>
+
+		
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="/RDT5/js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: '/RDT5/search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="Storing Compounds in an SQL Database">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+<!-- Page Content -->
+<div class="container">
+    <div class="col-lg-12">&nbsp;</div>
+    <!-- Content Row -->
+    <div class="row">
+        <!-- Sidebar Column -->
+        <div class="col-md-3">
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">Your Product 1.0</li>
+    
+    
+    
+        
+    
+    <li>
+        <a href="#">Overview</a>
+        <ul>
+            
+            
+            
+            <li><a href="/RDT5/">Get started</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/README/">README</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Introduction</a>
+        <ul>
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_01/">1. Overview</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_02/">2. R Package Repositories</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_03/">3. Installation of R and Add-on Packages</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_04/">4. Getting Around</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_05/">5. Basic Syntax</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_06/">6. Data Types</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_07/">7. Data objects</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_08/">8. Important Utilities</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_09/">9. Operators and Calculations</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_10/">10. Reading and Writing External Data</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_11/">11. Useful R Functions</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_12/">12. SQLite Databases</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_13/">13. Graphics in R</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_14/">14. Analysis Routine</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_15/">15. R Markdown</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_16/">16. Session Info</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_17/">17. References</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">R</a>
+        <ul>
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rgraphics_1/">1. Overview</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rgraphics_2/">2. Base Graphics</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rgraphics_3/">3. Grid Graphics</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rgraphics_4/">4. lattice Graphics</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rgraphics_5/">5. ggplot2 Graphics</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rgraphics_6/">6. Specialty Graphics</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rgraphics_7/">7. Genome Graphics</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rgraphics_8/">8. References</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">ChemmineR</a>
+        <ul>
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_01/">1. Introduction</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_02/">2. Getting Started</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_03/">3. OpenBabel Functions</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_04/">4. Overview of Classes and Functions</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_05/">5. Import of Compounds</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_06/">6. Export of Compounds</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_07/">7. Format Interconversions</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_08/">8. Splitting SD Files</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_09/">9. Streaming Through Large SD Files</a></li>
+            
+            
+            
+            
+            
+            
+            <li class="active"><a href="/RDT5/mydoc/mydoc_ChemmineR_10/">10. Storing Compounds in an SQL Database</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_11/">11. Working with SDF/SDFset Classes</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_12/">12. Molecular Property Functions (Physicochemical Descriptors)</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_13/">13. Bond Matrices</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_14/">14. Charges and Missing Hydrogens</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_15/">15. Ring Perception and Aromaticity Assignment</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_16/">16. Rendering Chemical Structure Images</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_17/">17. Similarity Comparisons and Searching</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_18/">18. Clustering</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_19/">19. Searching PubChem</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_20/">20. ChemMine Tools R Interface</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_21/">21. Version Information</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_22/">22. Funding</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_23/">23. References</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+        
+        <!-- if you aren't using the accordion, uncomment this block:
+           <p class="external">
+               <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+           </p>
+           -->
+    </li>
+</ul>
+</div>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+    <!-- Content Column -->
+    <div class="col-md-9">
+        <div class="post-header">
+   <h1 class="post-title-main">Storing Compounds in an SQL Database</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+
+    
+
+    
+
+    <a target="_blank" href="https://github.com/YourGithubID/YourGithubRepositoryName/blob/gh-pages//mydocmydoc_ChemmineR_10.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+    
+
+    
+
+  <p>As an alternative to sdfStream, there is now also an option to store
+data in an SQL database, which then allows for fast queries and compound
+retrieval. The default database
+is SQLite, but any other SQL database should work with some minor
+modifications to the table definitions, which are stored in
+schema/compounds.SQLite under the ChemmineR package directory. Compounds
+are stored in their entirety in the databases so there is no need to
+keep any original data files.</p>
+
+<p>Users can define their own set of compound features to compute and store
+when loading new compounds. Each of these features will be stored in its
+own, indexed table. Searches can then be performed using these features
+to quickly find specific compounds. Compounds can always be retrieved
+quickly because of the database index, no need to scan a large compound
+file. In addition to user defined features, descriptors can also be
+computed and stored for each compound.</p>
+
+<p>A new database can be created with the <code class="highlighter-rouge">initDb</code> function.
+This takes either an existing database connection, or a filename. If a
+filename is given then an SQLite database connection is created. It then
+ensures that the required tables exist and creates them if not. The
+connection object is then returned. This function can be called safely
+on the same connection or database many times and will not delete any
+data.</p>
+
+<h2 id="loading-data">Loading Data</h2>
+
+<p>The functions <code class="highlighter-rouge">loadSdf</code> and <code class="highlighter-rouge">loadSmiles</code> can be used to load
+compound data from either a file (both) or an <code class="highlighter-rouge">SDFset</code> (<code class="highlighter-rouge">loadSdf</code>
+only).  The <code class="highlighter-rouge">fct</code> parameter should be a function to
+extract features from the data. It will be handed an
+<code class="highlighter-rouge">SDFset</code> generated from the data being loaded. This may
+be done in batches, so there is no guarantee that the given SDFSset will
+contain the whole dataset. This function should return a data frame with
+a column for each feature and a row for each compound given. The order
+of the final data frame should be the same as that of the
+<code class="highlighter-rouge">SDFset</code>. The column names will become the feature names.
+Each of these features will become a new, indexed, table in the database
+which can be used later to search for compounds.</p>
+
+<p>The <code class="highlighter-rouge">descriptors</code> parameter can be a function which
+computes descriptors. This function will also be given an
+<code class="highlighter-rouge">SDFset</code> object, which may be done in batches. It should
+return a data frame with the following two columns: “descriptor” and
+“descriptor_type”. The “descriptor” column should contain a string
+representation of the descriptor, and “descriptor_type” is the type of
+the descriptor. Our convention for atom pair is “ap” and “fp” for finger
+print. The order should also be maintained.</p>
+
+<p>When the data has been loaded, <code class="highlighter-rouge">loadSdf</code> will return the
+compound id numbers of each compound loaded. These compound id numbers
+are computed by the database and are not extracted from the compound
+data itself. They can be used to quickly retrieve compounds later.</p>
+
+<p>New features can also be added using this function. However, all
+compounds must have all features so if new features are added to a new
+set of compounds, all existing features must be computable by the
+<code class="highlighter-rouge">fct</code> function given. If new features are detected, all
+existing compounds will be run through <code class="highlighter-rouge">fct</code> in order to
+compute the new features for them as well.</p>
+
+<p>For example, if dataset X is loaded with features F1 and F2, and then at
+a later time we load dataset Y with new feature F3, the
+<code class="highlighter-rouge">fct</code> function used to load dataset Y must compute and
+return features F1, F2, and F3. <code class="highlighter-rouge">loadSdf</code> will call
+<code class="highlighter-rouge">fct</code> with both datasets X and Y so that all features are
+available for all compounds. If any features are missing an error will
+be raised. If just new features are being added, but no new compounds,
+use the <code class="highlighter-rouge">addNewFeatures</code> function.</p>
+
+<p>In this example, we create a new database called “test.db” and load it
+with data from an <code class="highlighter-rouge">SDFset</code>. We also define
+<code class="highlighter-rouge">fct</code> to compute the molecular weight, “MW”, and the
+number of rings and aromatic rings. The rings function actually returns
+a data frame with columns “RINGS” and “AROMATIC”, which will be merged
+into the data frame being created which will also contain the “MW”
+column. These will be the names used for these features and must be used
+when searching with them. Finally, the new compound ids are returned and
+stored in the “ids” variable.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="w"> </span><span class="n">data</span><span class="p">(</span><span class="n">sdfsample</span><span class="p">)</span><span class="w">
+
+ </span><span class="c1">#create and initialize a new SQLite database 
+</span><span class="w"> </span><span class="n">conn</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">initDb</span><span class="p">(</span><span class="s2">"test.db"</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>## Loading required package: RSQLite
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>## Loading required package: DBI
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="w"> </span><span class="c1"># load data and compute 3 features: molecular weight, with the MW function, 
+</span><span class="w"> </span><span class="c1"># and counts for RINGS and AROMATIC, as computed by rings, which 
+</span><span class="w"> </span><span class="c1"># returns a data frame itself. 
+</span><span class="w"> </span><span class="n">ids</span><span class="o">&lt;-</span><span class="n">loadSdf</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="n">sdfsample</span><span class="p">,</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">sdfset</span><span class="p">)</span><span class="w"> 
+					 </span><span class="n">data.frame</span><span class="p">(</span><span class="n">rings</span><span class="p">(</span><span class="n">sdfset</span><span class="p">,</span><span class="n">type</span><span class="o">=</span><span class="s2">"count"</span><span class="p">,</span><span class="n">upper</span><span class="o">=</span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="n">arom</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">),</span><span class="n">propOB</span><span class="p">(</span><span class="n">sdfset</span><span class="p">))</span><span class="w"> </span><span class="p">)</span><span class="w"> 
+
+ </span><span class="c1">#list features in the database:
+</span><span class="w"> </span><span class="n">print</span><span class="p">(</span><span class="n">listFeatures</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>##  [1] "aromatic" "cansmi"   "cansmins" "formula"  "hba1"     "hba2"     "hbd"      "inchi"   
+##  [9] "logp"     "mr"       "mw"       "nf"       "rings"    "title"    "tpsa"
+</code></pre>
+</div>
+
+<h2 id="updates">Updates</h2>
+<p>By default the <code class="highlighter-rouge">loadSdf</code> / <code class="highlighter-rouge">loadSmiles</code> functions will detect duplicate
+compound entries and only insert one of them. This means it is safe
+to run these functions on the same data set several times and you
+won’t end up with duplicates. This allows the functions to be re-run
+in the event that a previous run on a dataset does not complete.
+Duplicate compounds are detected by compouting the MD5 checksum on
+the textual representation of it.</p>
+
+<p>It can also update existing compounds with new versions of the same
+compound. To enable this, set <code class="highlighter-rouge">updateByName</code> to true. It will then
+consider two compounds with the same name to be the same, even if the
+definition is different. Then, if the name of a compound exists in
+the database and it is trying to insert another compound with the
+same name, it will overwrite the existing compound. It will also drop
+and re-compute all associated descriptors and features for the new
+compound (assuming the required functions for descriptor and feature
+computation are available at the time the update is performed).</p>
+
+<h2 id="duplicate-descriptors">Duplicate Descriptors</h2>
+<p>It is often the case when loading a large set of compounds that
+several compounds will produce the same descriptor. <code class="highlighter-rouge">ChemmineR</code> 
+detects this case and only stores one copy of the descriptor for
+every compound it is for. This feature saves some space and some
+time for processes that need to be applied to every descriptor.
+It also highlights a new problem. If you have a descriptor in hand
+and you want to find a single compound to represent it, which
+compound should be used if the descriptor was produced from multiple
+compounds? To address this problem, <code class="highlighter-rouge">ChemmineR</code> allows you to set
+priority values for each compound-descriptor mapping. Then, in
+contexts where a single compound is required, the highest priority
+compound will be chosen. Highest priority corresponds to the lowest
+numerical value. So mapping with priority 0 would be used first.</p>
+
+<p>To set these priorities there is the function <code class="highlighter-rouge">setPriorities</code>.
+It takes a function, <code class="highlighter-rouge">priorityFn</code>, for computing these priority values.
+The <code class="highlighter-rouge">setPriorities</code> function should be run after loading a complete set of data.
+It will find each group of compounds which share the same
+descriptor and call the given function, <code class="highlighter-rouge">priorityFn</code>, 
+with the compound_id numbers of the group. This function should
+then assign priorities to each compound-descriptor pair, however
+it wishes.</p>
+
+<p>One built in priority function is <code class="highlighter-rouge">forestSizePriorities</code>. This simply
+prefers compounds with fewer disconnected components over compounds with
+more dissconnected components.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">setPriorities</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="n">forestSizePriorities</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<h2 id="searching">Searching</h2>
+
+<p>Compounds can be searched for using the <code class="highlighter-rouge">findCompounds</code>
+function. This function takes a connection object, a vector of feature
+names used in the tests, and finally, a vector of tests that must all
+pass for a compound to be included in the result set. Each test should
+be a boolean expression. For example: <code class="highlighter-rouge">c("MW &lt;= 400","RINGS \&gt; 3")</code>
+would return all compounds with a molecular weight of 400 or less and
+more than 3 rings, assuming these features exist in the database. The
+syntax for each test is <code class="highlighter-rouge">'\&lt;feature name\&gt; \&lt;SQL operator\&gt; \&lt;value\&gt;'</code>.
+If you know SQL you can go beyond this basic syntax. These tests will
+simply be concatenated together with “AND” in-between them and tacked on
+the end of a WHERE clause of an SQL statement. So any SQL that will work
+in that context is fine. The function will return a list of compound
+ids, the actual compounds can be fetched with
+<code class="highlighter-rouge">getCompounds</code>. If just the names are needed, the
+<code class="highlighter-rouge">getCompoundNames</code> function can be used. Compounds can
+also be fetched by name using the <code class="highlighter-rouge">findCompoundsByName</code>
+function.</p>
+
+<p>In this example we search for compounds with molecular weight less than
+300.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findCompounds</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="s2">"mw"</span><span class="p">,</span><span class="nf">c</span><span class="p">(</span><span class="s2">"mw &lt; 300"</span><span class="p">))</span><span class="w">
+</span><span class="n">message</span><span class="p">(</span><span class="s2">"found "</span><span class="p">,</span><span class="nf">length</span><span class="p">(</span><span class="n">results</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>## found 23
+</code></pre>
+</div>
+
+<p>If more than one test is given, only compounds which satisfy all tests are found. So if we wanted
+to further restrict our search to compounds with 2 or more aromatic rings we could do:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findCompounds</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="nf">c</span><span class="p">(</span><span class="s2">"mw"</span><span class="p">,</span><span class="s2">"aromatic"</span><span class="p">),</span><span class="nf">c</span><span class="p">(</span><span class="s2">"mw &lt; 300"</span><span class="p">,</span><span class="s2">"aromatic &gt;= 2"</span><span class="p">))</span><span class="w">
+</span><span class="n">message</span><span class="p">(</span><span class="s2">"found "</span><span class="p">,</span><span class="nf">length</span><span class="p">(</span><span class="n">results</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>## found 9
+</code></pre>
+</div>
+
+<p>Remember that any feature used in some test must be listed in the second argument.</p>
+
+<p>String patterns can also be used. So if we wanted to match a substring of the molecular formula, say
+to find compounds with 21 carbon atoms, we could do:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findCompounds</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="s2">"formula"</span><span class="p">,</span><span class="nf">c</span><span class="p">(</span><span class="s2">"formula like '%C21%'"</span><span class="p">))</span><span class="w">
+</span><span class="n">message</span><span class="p">(</span><span class="s2">"found "</span><span class="p">,</span><span class="nf">length</span><span class="p">(</span><span class="n">results</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>## found 12
+</code></pre>
+</div>
+
+<p>The “like” operator does a pattern match. There are two wildcard 
+operators that can be used with this operator. The “%” will match any stretch of characters while the “?”
+will match any single character. So the above expression would match a formula like “C21H28N4O6”.</p>
+
+<p>Valid comparison operators are:</p>
+
+<ul>
+  <li>&lt;,    &lt;=,   &gt; ,   &gt;=</li>
+  <li>=,    ==,   !=,   &lt;&gt;,   IS,   IS NOT,   IN,   LIKE</li>
+</ul>
+
+<p>The boolean operators “AND” and “OR” can also be used to create more complex expressions within a single test.</p>
+
+<p>If you just want to fetch every compound in the database you can use the <code class="highlighter-rouge">getAllCompoundIds</code> function:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">allIds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getAllCompoundIds</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span><span class="w">
+</span><span class="n">message</span><span class="p">(</span><span class="s2">"found "</span><span class="p">,</span><span class="nf">length</span><span class="p">(</span><span class="n">allIds</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>## found 100
+</code></pre>
+</div>
+
+<h2 id="using-search-results">Using Search Results</h2>
+<p>Once you have a list of compound ids from the <code class="highlighter-rouge">findCompounds</code> function, you can either
+fetch the compound names, or the whole set of compounds as an SDFset.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1">#get the names of the compounds:
+</span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getCompoundNames</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="n">results</span><span class="p">)</span><span class="w">
+
+</span><span class="c1">#if the name order is important set keepOrder=TRUE 
+#It will take a little longer though
+</span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getCompoundNames</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="n">results</span><span class="p">,</span><span class="n">keepOrder</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span><span class="w"> 
+
+
+</span><span class="c1"># get the whole set of compounds
+</span><span class="n">compounds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getCompounds</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="n">results</span><span class="p">)</span><span class="w">
+</span><span class="c1">#in order:
+</span><span class="n">compounds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getCompounds</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="n">results</span><span class="p">,</span><span class="n">keepOrder</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span><span class="w">
+</span><span class="c1">#write results directly to a file:
+</span><span class="n">compounds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getCompounds</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="n">results</span><span class="p">,</span><span class="n">filename</span><span class="o">=</span><span class="n">file.path</span><span class="p">(</span><span class="n">tempdir</span><span class="p">(),</span><span class="s2">"results.sdf"</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Using the <code class="highlighter-rouge">getCompoundFeatures</code> function, you can get a set of feature values 
+as a data frame:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">getCompoundFeatures</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="n">results</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">],</span><span class="nf">c</span><span class="p">(</span><span class="s2">"mw"</span><span class="p">,</span><span class="s2">"logp"</span><span class="p">,</span><span class="s2">"formula"</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>##   compound_id       mw   logp       formula
+## 1         204 461.5346 1.3127   C21H27N5O5S
+## 2         208 438.4780 3.5492  C21H19FN6O2S
+## 3         221 340.4592 3.1325    C21H28N2O2
+## 4         238 447.9351 5.2940 C21H22ClN3O4S
+## 5         243 456.5181 3.0020   C21H24N6O4S
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1">#write results directly to a CSV file (reduces memory usage):
+</span><span class="n">getCompoundFeatures</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="n">results</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">],</span><span class="nf">c</span><span class="p">(</span><span class="s2">"mw"</span><span class="p">,</span><span class="s2">"logp"</span><span class="p">,</span><span class="s2">"formula"</span><span class="p">),</span><span class="n">filename</span><span class="o">=</span><span class="s2">"features.csv"</span><span class="p">)</span><span class="w">
+
+</span><span class="c1">#maintain input order in output:
+</span><span class="n">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">])</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] 204 208 221 238 243
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">getCompoundFeatures</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="n">results</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">],</span><span class="nf">c</span><span class="p">(</span><span class="s2">"mw"</span><span class="p">,</span><span class="s2">"logp"</span><span class="p">,</span><span class="s2">"formula"</span><span class="p">),</span><span class="n">keepOrder</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>##     compound_id       mw   logp       formula
+## 204         204 461.5346 1.3127   C21H27N5O5S
+## 208         208 438.4780 3.5492  C21H19FN6O2S
+## 221         221 340.4592 3.1325    C21H28N2O2
+## 238         238 447.9351 5.2940 C21H22ClN3O4S
+## 243         243 456.5181 3.0020   C21H24N6O4S
+</code></pre>
+</div>
+
+<h2 id="pre-built-databases">Pre-Built Databases</h2>
+<p>We have pre-built SQLite databases for the Drug Bank and DUD datasets. They can be found in 
+the ChemmineDrugs annotation package. Connections to these databases can be fetched from the
+functions <code class="highlighter-rouge">DrugBank</code> and <code class="highlighter-rouge">DUD</code> to get the corresponding database. Any of the above functions can
+then be used to query the database.</p>
+
+<p>The DUD dataset was downloaded from <a href="http://dude.docking.org/db/subsets/all/all.tar.gz">here</a>. A description
+can be found <a href="http://dude.docking.org/">here</a>.</p>
+
+<p>The Drug Bank data set is version 4.1. It can be downloaded <a href="http://www.drugbank.ca/system/downloads/current/structures/all.sdf.zip">here</a></p>
+
+<p>The following features are included:</p>
+
+<ul>
+  <li><strong>aromatic</strong>: Number of aromatic rings</li>
+  <li><strong>cansmi</strong>: Canonical SMILES sting</li>
+  <li><strong>cansmins</strong>:</li>
+  <li><strong>formula</strong>: Molecular formula</li>
+  <li><strong>hba1</strong>:</li>
+  <li><strong>hba2</strong>:</li>
+  <li><strong>hbd</strong>:</li>
+  <li><strong>inchi</strong>: INCHI string</li>
+  <li><strong>logp</strong>:</li>
+  <li><strong>mr</strong>:</li>
+  <li><strong>mw</strong>: Molecular weight</li>
+  <li><strong>ncharges</strong>:</li>
+  <li><strong>nf</strong>:</li>
+  <li><strong>r2nh</strong>:</li>
+  <li><strong>r3n</strong>:</li>
+  <li><strong>rcch</strong>:</li>
+  <li><strong>rcho</strong>:</li>
+  <li><strong>rcn</strong>:</li>
+  <li><strong>rcooh</strong>:</li>
+  <li><strong>rcoor</strong>:</li>
+  <li><strong>rcor</strong>:</li>
+  <li><strong>rings</strong>:</li>
+  <li><strong>rnh2</strong>:</li>
+  <li><strong>roh</strong>:</li>
+  <li><strong>ropo3</strong>:</li>
+  <li><strong>ror</strong>:</li>
+  <li><strong>title</strong>:</li>
+  <li><strong>tpsa</strong>:</li>
+</ul>
+
+<p>The DUD database additionally includes:</p>
+
+<ul>
+  <li><strong>target_name</strong>: Name of the target</li>
+  <li><strong>type</strong>: either “active” or “decoy”</li>
+</ul>
+
+<div class="tags">
+<b>Jump to: </b>
+<a href="/RDT5/mydoc/mydoc_ChemmineR_11/" class="btn btn-default navbar-btn cursorNorm" role="button">next_page</a>
+</div>
+
+
+<div class="tags">
+    
+</div>
+
+    
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2016 Your company_name. All rights reserved. <br />
+<p>Page last updated:</span> Tue Jul 12 23:20:55 2016<br/> Site last generated: Jul 19, 2016 <br />
+<p><img src="/RDT5/images/company_logo.png" alt="Company logo"/></p>
+                </div>
+            </div>
+</footer>
+
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+    </div>
+    <script>
+    jQuery(function ($) {
+        $('.post-content').annotator()
+                .annotator('setupPlugins', {tokenUrl: 'http://example.com/api/token'})
+    });
+    </script>
+</body>
+
+</html>

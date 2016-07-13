@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title>R Markdown  | Your site_title</title>
+<link rel="stylesheet" href="/RDT5/css/syntax.css">
+
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="/RDT5/css/modern-business.css">
+<link rel="stylesheet" href="/RDT5/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="/RDT5/css/customstyles.css">
+<link rel="stylesheet" href="/RDT5/css/theme-blue.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="/RDT5/js/jquery.navgoco.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="/RDT5/js/toc.js"></script>
+<script src="/RDT5/js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="/RDT5/images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="" href="http://YourDomainName.com/RDT5/feed.xml">
+
+
+
+
+ 
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="/RDT5/">&nbsp;<span class="projectTitle"> Your Topnav_title</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                
+                
+                
+                <li><a href="http://girke.bioinformatics.ucr.edu/" class="btn btn-default navbar-btn cursorNorm" role="button" target="_blank">Home</a></li>
+                
+                
+                
+                <li><a href="http://manuals.bioinformatics.ucr.edu/home/programming-in-r/vim-r" class="btn btn-default navbar-btn cursorNorm" role="button" target="_blank">vimR</a></li>
+                
+                
+                
+                <li><a href="http://www.genomics.ucr.edu/" class="btn btn-default navbar-btn cursorNorm" role="button" target="_blank">IIGB</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Your Resources<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li><a href="https://github.com/YourGitHubID/YourRepoName" target="_blank">Github Repo</a></li>
+                        
+                        
+                        
+                        <li><a href="https://talk.jekyllrb.com" target="_blank">Jekyll Talk</a></li>
+                        
+                        
+                        
+                        <li><a href="http://jekyllrb.com/docs/home/" target="_blank">Jekyll documentation</a></li>
+                        
+                        
+                        
+                        <li><a href="http://stackoverflow.com/questions/tagged/jekyll" target="_blank">Jekyll on Stack Overflow</a></li>
+                        
+                        
+                        
+                        <li><a href="http://idratherbewriting.com/category-jekyll/" target="_blank">Jekyll on my blog</a></li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li class="dropdownActive"><a href="/RDT5/">Your Home Page</a></li>
+                        
+                        
+                        
+                        <li><a href="/RDT5/p1_landing_page/">Product 1</a></li>
+                        
+                        
+                        
+                        <li><a href="/RDT5/p2_landing_page/">Product 2</a></li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+			<!-- Send feedback function -->
+<script>
+function SendLinkByMail(href) {
+var subject= "Your site_title feedback";
+var body = "I have some feedback about the R Markdown page: ";
+body += window.location.href;
+body += "";
+var uri = "mailto:YourEmailAddress@provider.com?subject=";
+uri += encodeURIComponent(subject);
+uri += "&body=";
+uri += encodeURIComponent(body);
+window.location.href = uri;
+}
+</script>
+
+<li><a href="javascript:(function()%7BSendLinkByMail()%3B%7D)()%3B" target="_blank"><i class="fa fa-envelope-o"></i> Feedback</a></li>
+
+		
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="/RDT5/js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: '/RDT5/search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="R Markdown">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+<!-- Page Content -->
+<div class="container">
+    <div class="col-lg-12">&nbsp;</div>
+    <!-- Content Row -->
+    <div class="row">
+        <!-- Sidebar Column -->
+        <div class="col-md-3">
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">Your Product 1.0</li>
+    
+    
+    
+        
+    
+    <li>
+        <a href="#">Overview</a>
+        <ul>
+            
+            
+            
+            <li><a href="/RDT5/">Get started</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/README/">README</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Introduction</a>
+        <ul>
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_01/">1. Overview</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_02/">2. R Package Repositories</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_03/">3. Installation of R and Add-on Packages</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_04/">4. Getting Around</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_05/">5. Basic Syntax</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_06/">6. Data Types</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_07/">7. Data objects</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_08/">8. Important Utilities</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_09/">9. Operators and Calculations</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_10/">10. Reading and Writing External Data</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_11/">11. Useful R Functions</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_12/">12. SQLite Databases</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_13/">13. Graphics in R</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_14/">14. Analysis Routine</a></li>
+            
+            
+            
+            
+            
+            
+            <li class="active"><a href="/RDT5/mydoc/mydoc_Rbasics_15/">15. R Markdown</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_16/">16. Session Info</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rbasics_17/">17. References</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">R</a>
+        <ul>
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rgraphics_1/">1. Overview</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rgraphics_2/">2. Base Graphics</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rgraphics_3/">3. Grid Graphics</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rgraphics_4/">4. lattice Graphics</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rgraphics_5/">5. ggplot2 Graphics</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rgraphics_6/">6. Specialty Graphics</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rgraphics_7/">7. Genome Graphics</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_Rgraphics_8/">8. References</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">ChemmineR</a>
+        <ul>
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_01/">1. Introduction</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_02/">2. Getting Started</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_03/">3. OpenBabel Functions</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_04/">4. Overview of Classes and Functions</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_05/">5. Import of Compounds</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_06/">6. Export of Compounds</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_07/">7. Format Interconversions</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_08/">8. Splitting SD Files</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_09/">9. Streaming Through Large SD Files</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_10/">10. Storing Compounds in an SQL Database</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_11/">11. Working with SDF/SDFset Classes</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_12/">12. Molecular Property Functions (Physicochemical Descriptors)</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_13/">13. Bond Matrices</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_14/">14. Charges and Missing Hydrogens</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_15/">15. Ring Perception and Aromaticity Assignment</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_16/">16. Rendering Chemical Structure Images</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_17/">17. Similarity Comparisons and Searching</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_18/">18. Clustering</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_19/">19. Searching PubChem</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_20/">20. ChemMine Tools R Interface</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_21/">21. Version Information</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_22/">22. Funding</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="/RDT5/mydoc/mydoc_ChemmineR_23/">23. References</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+        
+        <!-- if you aren't using the accordion, uncomment this block:
+           <p class="external">
+               <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+           </p>
+           -->
+    </li>
+</ul>
+</div>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+    <!-- Content Column -->
+    <div class="col-md-9">
+        <div class="post-header">
+   <h1 class="post-title-main">R Markdown</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+
+    
+
+    
+
+    <a target="_blank" href="https://github.com/YourGithubID/YourGithubRepositoryName/blob/gh-pages//mydocmydoc_Rbasics_15.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+    
+
+    
+
+  <h2 id="overview">Overview</h2>
+
+<p>R Markdown combines markdown (an easy to write plain text format) with embedded
+R code chunks. When compiling R Markdown documents, the code components can be
+evaluated so that both the code and its output can be included in the final
+document. This makes analysis reports highly reproducible by allowing to automatically
+regenerate them when the underlying R code or data changes. R Markdown
+documents (<code class="highlighter-rouge">.Rmd</code> files) can be rendered to various formats including HTML and
+PDF. The R code in an <code class="highlighter-rouge">.Rmd</code> document is processed by <code class="highlighter-rouge">knitr</code>, while the
+resulting <code class="highlighter-rouge">.md</code> file is rendered by <code class="highlighter-rouge">pandoc</code> to the final output formats
+(<em>e.g.</em> HTML or PDF). Historically, R Markdown is an extension of the older
+<code class="highlighter-rouge">Sweave/Latex</code> environment. Rendering of mathematical expressions and reference
+management is also supported by R Markdown using embedded Latex syntax and
+Bibtex, respectively.</p>
+
+<h2 id="quick-start">Quick Start</h2>
+
+<h3 id="install-r-markdown">Install R Markdown</h3>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">install.packages</span><span class="p">(</span><span class="s2">"rmarkdown"</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<h3 id="initialize-a-new-r-markdown-rmd-script">Initialize a new R Markdown (<code class="highlighter-rouge">Rmd</code>) script</h3>
+
+<p>To minimize typing, it can be helful to start with an R Markdown template and
+then modify it as needed. Note the file name of an R Markdown scirpt needs to
+have the extension <code class="highlighter-rouge">.Rmd</code>. Template files for the following examples are available 
+here:</p>
+
+<ul>
+  <li>R Markdown sample script: <a href="https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/07_Rbasics/sample.Rmd"><code class="highlighter-rouge">sample.Rmd</code></a></li>
+  <li>Bibtex file for handling citations and reference section: <a href="https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/07_Rbasics/bibtex.bib"><code class="highlighter-rouge">bibtex.bib</code></a></li>
+</ul>
+
+<p>Users want to download these files, open the <code class="highlighter-rouge">sample.Rmd</code> file with their preferred R IDE 
+(<em>e.g.</em> RStudio, vim or emacs), initilize an R session and then direct their R session to 
+the location of these two files.</p>
+
+<h3 id="metadata-section">Metadata section</h3>
+
+<p>The metadata section (YAML header) in an R Markdown script defines how it will be processed and 
+rendered. The metadata section also includes both title, author, and date information as well as 
+options for customizing the output format. For instance, PDF and HTML output can be defined 
+with <code class="highlighter-rouge">pdf_document</code> and <code class="highlighter-rouge">html_document</code>, respectively. The <code class="highlighter-rouge">BiocStyle::</code> prefix will use the
+formatting style of the <a href="http://bioconductor.org/packages/release/bioc/html/BiocStyle.html"><code class="highlighter-rouge">BiocStyle</code></a> 
+package from Bioconductor.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code> ---
+title: "My First R Markdown Document"
+author: "Author: First Last"
+date: "Last update: 21 June, 2016"
+output:
+  BiocStyle::html_document:
+    toc: true
+    toc_depth: 3
+    fig_caption: yes
+
+fontsize: 14pt
+bibliography: bibtex.bib
+ ---
+</code></pre>
+</div>
+
+<h3 id="render-rmd-script">Render <code class="highlighter-rouge">Rmd</code> script</h3>
+
+<p>An R Markdown script can be evaluated and rendered with the following <code class="highlighter-rouge">render</code> command or by pressing the <code class="highlighter-rouge">knit</code> button in RStudio.
+The <code class="highlighter-rouge">output_format</code> argument defines the format of the output (<em>e.g.</em> <code class="highlighter-rouge">html_document</code>). The setting <code class="highlighter-rouge">output_format="all"</code> will generate 
+all supported output formats. Alternatively, one can specify several output formats in the metadata section as shown in the above example.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">rmarkdown</span><span class="o">::</span><span class="n">render</span><span class="p">(</span><span class="s2">"sample.Rmd"</span><span class="p">,</span><span class="w"> </span><span class="n">clean</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">output_format</span><span class="o">=</span><span class="s2">"html_document"</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>The following shows two options how to run the rendering from the command-line.</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">echo</span> <span class="s2">"rmarkdown::render('sample.Rmd', clean=TRUE)"</span> | R --slave
+<span class="gp">$ </span>Rscript -e <span class="s2">"rmarkdown::render('sample.Rmd', clean=TRUE)"</span>
+</code></pre>
+</div>
+
+<p>Alternatively, one can use a Makefile to evaluate and render an R Markdown
+script. A sample Makefile for rendering the above <code class="highlighter-rouge">sample.Rmd</code> can be
+downloaded <a href="https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/07_Rbasics/Makefile"><code class="highlighter-rouge">here</code></a>.
+To apply it to a custom <code class="highlighter-rouge">Rmd</code> file, one needs open the Makefile in a text
+editor and change the value assigned to <code class="highlighter-rouge">MAIN</code> (line 13) to the base name of
+the corresponding <code class="highlighter-rouge">.Rmd</code> file (<em>e.g.</em> assign <code class="highlighter-rouge">systemPipeRNAseq</code> if the file
+name is <code class="highlighter-rouge">systemPipeRNAseq.Rmd</code>).  To execute the <code class="highlighter-rouge">Makefile</code>, run the following
+command from the command-line.</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>make -B
+</code></pre>
+</div>
+
+<h3 id="r-code-chunks">R code chunks</h3>
+
+<p>R Code Chunks can be embedded in an R Markdown script by using three backticks
+at the beginning of a new line along with arguments enclosed in curly braces
+controlling the behavior of the code. The following lines contain the
+plain R code. A code chunk is terminated by a new line starting with three backticks.
+The following shows an example of such a code chunk. Note the backslashes are
+not part of it. They have been added to print the code chunk syntax in this document.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>	```\{r code_chunk_name, eval=FALSE\}
+	x &lt;- 1:10
+	```
+</code></pre>
+</div>
+
+<p>The following lists the most important arguments to control the behavior of R code chunks:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">r</code>: specifies language for code chunk, here R</li>
+  <li><code class="highlighter-rouge">chode_chunk_name</code>: name of code chunk; this name needs to be unique</li>
+  <li><code class="highlighter-rouge">eval</code>: if assigned <code class="highlighter-rouge">TRUE</code> the code will be evaluated</li>
+  <li><code class="highlighter-rouge">warning</code>: if assigned <code class="highlighter-rouge">FALSE</code> warnings will not be shown</li>
+  <li><code class="highlighter-rouge">message</code>: if assigned <code class="highlighter-rouge">FALSE</code> messages will not be shown</li>
+  <li><code class="highlighter-rouge">cache</code>: if assigned <code class="highlighter-rouge">TRUE</code> results will be cached to reuse in future rendering instances</li>
+  <li><code class="highlighter-rouge">fig.height</code>: allows to specify height of figures in inches</li>
+  <li><code class="highlighter-rouge">fig.width</code>: allows to specify width of figures in inches</li>
+</ul>
+
+<p>For more details on code chunk options see <a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">here</a>.</p>
+
+<h3 id="learning-markdown">Learning Markdown</h3>
+
+<p>The basic syntax of Markdown and derivatives like kramdown is extremely easy to learn. Rather
+than providing another introduction on this topic, here are some useful sites for learning Markdown:</p>
+
+<ul>
+  <li><a href="https://guides.github.com/features/mastering-markdown/">Markdown Intro on GitHub</a></li>
+  <li><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown Cheet Sheet</a></li>
+  <li><a href="http://rmarkdown.rstudio.com/authoring_basics.html">Markdown Basics from RStudio</a></li>
+  <li><a href="http://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">R Markdown Cheat Sheet</a></li>
+  <li><a href="http://kramdown.gettalong.org/syntax.html">kramdown Syntax</a></li>
+</ul>
+
+<h3 id="tables">Tables</h3>
+
+<p>There are several ways to render tables. First, they can be printed within the R code chunks. Second, 
+much nicer formatted tables can be generated with the functions <code class="highlighter-rouge">kable</code>, <code class="highlighter-rouge">pander</code> or <code class="highlighter-rouge">xtable</code>. The following
+example uses <code class="highlighter-rouge">kable</code> from the <code class="highlighter-rouge">knitr</code> package.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">knitr</span><span class="p">)</span><span class="w">
+</span><span class="n">kable</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">12</span><span class="p">,])</span><span class="w">
+</span></code></pre>
+</div>
+
+<h2 id="sepallength---sepalwidth---petallength---petalwidth--species">Sepal.Length   Sepal.Width   Petal.Length   Petal.Width  Species</h2>
+<div class="highlighter-rouge"><pre class="highlight"><code>      5.1           3.5            1.4           0.2  setosa  
+      4.9           3.0            1.4           0.2  setosa  
+      4.7           3.2            1.3           0.2  setosa  
+      4.6           3.1            1.5           0.2  setosa  
+      5.0           3.6            1.4           0.2  setosa  
+      5.4           3.9            1.7           0.4  setosa  
+      4.6           3.4            1.4           0.3  setosa  
+      5.0           3.4            1.5           0.2  setosa  
+      4.4           2.9            1.4           0.2  setosa  
+      4.9           3.1            1.5           0.1  setosa  
+      5.4           3.7            1.5           0.2  setosa  
+      4.8           3.4            1.6           0.2  setosa  
+</code></pre>
+</div>
+
+<h3 id="figures">Figures</h3>
+
+<p>Plots generated by the R code chunks in an R Markdown document can be automatically 
+inserted in the output file. The size of the figure can be controlled with the <code class="highlighter-rouge">fig.height</code>
+and <code class="highlighter-rouge">fig.width</code> arguments.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span><span class="w">
+</span><span class="n">dsmall</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">diamonds</span><span class="p">[</span><span class="n">sample</span><span class="p">(</span><span class="n">nrow</span><span class="p">(</span><span class="n">diamonds</span><span class="p">),</span><span class="w"> </span><span class="m">1000</span><span class="p">),</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dsmall</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">color</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="o">/</span><span class="n">carat</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">geom_jitter</span><span class="p">(</span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">I</span><span class="p">(</span><span class="m">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><img src="../Rbasics_files/some_jitter_plot-1.png" alt="" /></p>
+
+<p>Sometimes it can be useful to explicitly write an image to a file and then insert that 
+image into the final document by referencing its file name in the R Markdown source. For 
+instance, this can be useful for time consuming analyses. The following code will generate a 
+file named <code class="highlighter-rouge">myplot.png</code>. To insert the file  in the final document, one can use standard 
+Markdown or HTML syntax, <em>e.g.</em>: <code class="highlighter-rouge">&lt;img src="../Rbasics_files/myplot.png"/&gt;</code>.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">png</span><span class="p">(</span><span class="s2">"myplot.png"</span><span class="p">)</span><span class="w">
+</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dsmall</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">color</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="o">/</span><span class="n">carat</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">geom_jitter</span><span class="p">(</span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">I</span><span class="p">(</span><span class="m">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">))</span><span class="w">
+</span><span class="n">dev.off</span><span class="p">()</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>## png 
+##   2
+</code></pre>
+</div>
+<center><img title="some_title" src="../Rbasics_files/myplot.png" /></center>
+
+<h3 id="inline-r-code">Inline R code</h3>
+
+<p>To evaluate R code inline, one can enclose an R expression with a single back-tick
+followed by <code class="highlighter-rouge">r</code> and then the actual expression.  For instance, the back-ticked version 
+of ‘r 1 + 1’ evaluates to 2 and ‘r pi’ evaluates to 3.1415927.</p>
+
+<h3 id="mathematical-equations">Mathematical equations</h3>
+
+<p>To render mathematical equations, one can use standard Latex syntax. When expressions are 
+enclosed with single <code class="highlighter-rouge">$</code> signs then they will be shown inline, while 
+enclosing them with double <code class="highlighter-rouge">$$</code> signs will show them in display mode. For instance, the following 
+Latex syntax <code class="highlighter-rouge">d(X,Y) = \sqrt[]{ \sum_{i=1}^{n}{(x_{i}-y_{i})^2} }</code> renders in display mode as follows:</p>
+
+<script type="math/tex; mode=display">d(X,Y) = \sqrt[]{ \sum_{i=1}^{n}{(x_{i}-y_{i})^2} }</script>
+
+<h3 id="citations-and-bibliographies">Citations and bibliographies</h3>
+
+<p>Citations and bibliographies can be autogenerated in R Markdown in a similar
+way as in Latex/Bibtex. Reference collections should be stored in a separate
+file in Bibtex or other supported formats. To cite a publication in an R Markdown 
+script, one uses the syntax <code class="highlighter-rouge">(@&lt;id1&gt;)</code> where <code class="highlighter-rouge">&lt;id1&gt;</code> needs to be replaced with a 
+reference identifier present in the Bibtex database listed in the metadata section 
+of the R Markdown script  (<em>e.g.</em> <code class="highlighter-rouge">bibtex.bib</code>). For instance, to cite Lawrence et al. 
+(2013), one  uses its reference identifier (<em>e.g.</em> <code class="highlighter-rouge">Lawrence2013-kt</code>) as <code class="highlighter-rouge">&lt;id1&gt;</code> (Lawrence et al., 2013). 
+This will place the citation inline in the text and add the corresponding
+reference to a reference list at the end of the output document. For the latter a 
+special section called <code class="highlighter-rouge">References</code> needs to be specified at the end of the R Markdown script.
+To fine control the formatting of citations and reference lists, users want to consult this 
+the corresponding <a href="http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html">R Markdown page</a>.
+Also, for general reference management and outputting references in Bibtex format <a href="https://paperpile.com/features">Paperpile</a> 
+can be very helpful.</p>
+
+<div class="tags">
+<b>Jump to: </b>
+<a href="/RDT5/mydoc/mydoc_Rbasics_16/" class="btn btn-default navbar-btn cursorNorm" role="button">next_page</a>
+</div>
+
+
+<div class="tags">
+    
+</div>
+
+    
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2016 Your company_name. All rights reserved. <br />
+<p>Page last updated:</span> Tue Jul 12 23:20:55 2016<br/> Site last generated: Jul 19, 2016 <br />
+<p><img src="/RDT5/images/company_logo.png" alt="Company logo"/></p>
+                </div>
+            </div>
+</footer>
+
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+    </div>
+    <script>
+    jQuery(function ($) {
+        $('.post-content').annotator()
+                .annotator('setupPlugins', {tokenUrl: 'http://example.com/api/token'})
+    });
+    </script>
+</body>
+
+</html>
