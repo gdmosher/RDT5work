@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content=" ">
-<title>Make the UCR Documentation Theme Your Theme!  | Your site_title</title>
+<title>Page Not Found  | Your site_title</title>
 <link rel="stylesheet" href="/RDT5/css/syntax.css">
 
 
@@ -168,7 +168,7 @@
 <script>
 function SendLinkByMail(href) {
 var subject= "Your site_title feedback";
-var body = "I have some feedback about the Make the UCR Documentation Theme Your Theme! page: ";
+var body = "I have some feedback about the Page Not Found page: ";
 body += window.location.href;
 body += "";
 var uri = "mailto:YourEmailAddress@provider.com?subject=";
@@ -195,7 +195,7 @@ window.location.href = uri;
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: '/RDT5/search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Make the UCR Documentation Theme Your Theme!">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Page Not Found">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -249,7 +249,7 @@ window.location.href = uri;
             
             
             
-            <li class="active"><a href="/RDT5/README/">README</a></li>
+            <li><a href="/RDT5/README/">README</a></li>
             
             
             
@@ -632,7 +632,7 @@ window.location.href = uri;
     <!-- Content Column -->
     <div class="col-md-9">
         <div class="post-header">
-   <h1 class="post-title-main">Make the UCR Documentation Theme Your Theme!</h1>
+   <h1 class="post-title-main">Page Not Found</h1>
 </div>
 
 
@@ -670,207 +670,12 @@ $('#toc').on('click', 'a', function() {
 
     
 
-    <a target="_blank" href="https://github.com/YourGithubID/YourGithubRepositoryName/blob/gh-pages//README.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+    <a target="_blank" href="https://github.com/YourGithubID/YourGithubRepositoryName/blob/gh-pages//mydoc404.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
     
 
     
 
-  <h2 id="ucr-documentation-theme">UCR Documentation Theme</h2>
-
-<p>The UCR Documentation Theme is making reproducible research more accessible for all labs on campus. Simple to setup and maintain, easy to publish at github-pages, this theme supports advanced data publishing technology including R, R-Markdown and knitr. Development of the theme is supervised by <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#116;&#104;&#111;&#109;&#097;&#115;&#046;&#103;&#105;&#114;&#107;&#101;&#064;&#117;&#099;&#114;&#046;&#101;&#100;&#117;">Thomas Girke</a> at UCR’s IGGB/biocluster? The theme is supported by <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#103;&#109;&#111;&#115;&#104;&#048;&#048;&#049;&#064;&#117;&#099;&#114;&#046;&#101;&#100;&#117;">Gordon David Mosher</a> and for the time being, includes free onsite consultation and training to help you adopt the theme, import your data, and get started with markdown.</p>
-
-<p>This theme is based on Tom Johnson’s Jekyll Documentation theme version 5.0</p>
-
-<h2 id="jekyll-documentation-theme">Jekyll Documentation Theme</h2>
-
-<p>The base theme continues to evolve here: <a href="http://idratherbewriting.com/documentation-theme-jekyll/">http://idratherbewriting.com/documentation-theme-jekyll/</a> The instructions for the base theme 5.0 can be found by invoking “jekyll serve” in the root of the ORIG branch of this repository.</p>
-
-<h2 id="getting-started">Getting started</h2>
-
-<p>These instructions are specific to linux, but can be adapted to Windows or OSX.</p>
-
-<p>Adding your content is one of the last steps in this tutorial. Follow along in order to get a top down view of the complete process.</p>
-
-<h3 id="prerequisites">Prerequisites</h3>
-
-<p>To use this tool chain you will need to have already installed <a href="https://help.github.com/articles/set-up-git/">git</a> and <a href="https://jekyllrb.com/docs/installation/">jekyll</a>. <br />
-If you are lucky, and using linux, the following commands will take care of that for you:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo -i
-apt-get install git
-git config --global user.name "YOUR NAME"
-git config --global user.email "YOUR EMAIL ADDRESS"
-
-gem install jekyll  #or apt-get install jekyll
-</code></pre>
-</div>
-<p>To use the md2jekyllDT5 script to fold your files into sections you will also need <a href="https://www.r-project.org/">R</a> and optionally <a href="https://www.rstudio.com/home/">RStudio</a>.<br />
-First, get R</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo apt-get install r-base #installs R
-</code></pre>
-</div>
-
-<p>Now <a href="https://www.rstudio.com/products/rstudio/download/">install RStudio using an installer</a>
-RStudio may ask for libraries/packages. Install them as needed at that time.
-Additional help from <a href="http://web.cs.ucla.edu/~gulzar/rstudio/">CS UCLA</a></p>
-
-<p><a href="https://www.dropbox.com/install">Dropbox</a> is recommended for multi-computer access and backup features.</p>
-
-<h3 id="clone-or-download-the-template">Clone or download the template</h3>
-
-<p>To facilitate use this theme as a template we have created a striped down configuration in the “empty” branch. <br />
-To get your copy</p>
-
-<ul>
-  <li>
-    <p>Note: Keeping your repo in a Dropbox folder protects your files and makes them accessible from your other computers!</p>
-  </li>
-  <li>
-    <p>Open your shell and navigate to a folder on your computer where you want to create it,<br />
-  then enter these commands to clone it and checkout the branch called “empty”:</p>
-  </li>
-</ul>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>## Using this method the .git folder will exist although it may be hidden
-
-git clone https://github.com/gdmosher/RDT5.git RDT5
-
-git checkout empty #to open the empty branch as a template
-## -OR - git checkout ORIG #if you want to deviate from the tutorial
-##                          to study Tom Johnson version 5.0 release
-</code></pre>
-</div>
-
-<ul>
-  <li>The folder can be renamed at anytime, but I recommend leaving it until you are comfortable editing the _config.yml file.
-  Important the baseurl: in _config.yml (described below), must match the repo name.</li>
-</ul>
-
-<blockquote>
-  <p>If you want to start your repo fresh (Note: Don’t do this unless you understand git and really want to get rid of all the history and other branches! You will lose all but the current branch, and it will become master.)</p>
-
-  <ul>
-    <li>delete the .git folder, then</li>
-    <li>git init</li>
-  </ul>
-
-  <p>To record this fresh state, you will want to</p>
-
-  <ul>
-    <li>git add .</li>
-    <li>git commit -m “Initial commit of clean RDT5”</li>
-    <li>END of git init steps</li>
-  </ul>
-</blockquote>
-
-<p>As you work in git be sure to stash or commit your changes before changing branches so your work doesn’t get mixed up.
-If you are new to git, this is a great time to create a branch for your work:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>git checkout -b gh-pages  
-##   Note: The name of the branch doesn't matter for now,
-##   but some of the publishing scripts discussed below expect the name gh-pages
-##   which is required by github to host your pages.
-</code></pre>
-</div>
-
-<p>The site can be generated now, local and empty, if you want to test it.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>cd /RDT5
-jekyll serve
-##  jekyll will generate an url for you to paste into your browser's address bar
-</code></pre>
-</div>
-
-<p>Before you can push it to github you will need to create an empty repo at github.</p>
-
-<ul>
-  <li>at github.com login as yourself or create a free account</li>
-  <li>follow their instructions to create an empty repo
-    <ul>
-      <li>do not add a README, License or .gitignore at this time</li>
-    </ul>
-  </li>
-  <li>done</li>
-</ul>
-
-<p>To connect your clone of RDT5 to your new repo at github</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>cd /RDT5
-git remote add origin https://github.com/YourGithubID/RDT5.git
-git remote -v    #to verify
-</code></pre>
-</div>
-<ul>
-  <li>
-    <p>when you are ready to push,  study the available publishing scripts <a href="https://github.com/gdmosher/RDT5/blob/empty/buildAll.sh">buildAll.sh</a> and <a href="https://github.com/gdmosher/RDT5/blob/empty/pushSite.sh">pushSite.sh</a></p>
-  </li>
-  <li>
-    <p>then use one of the scripts or the command:</p>
-  </li>
-</ul>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>git push -u origin   #to push the branch you are on
-</code></pre>
-</div>
-
-<h3 id="architecture">Architecture</h3>
-<p>Brief introduction to the architecture of the repository. The SIDEBAR is one of the hottest features of this theme. Multiple sidebars can be supported by one repo/site. The term PRODUCT refers to the content of one sidebar. Each product should be stored in it’s own folder in the root of the site (e.g. /RDT5/mydoc). The default product name “mydoc” already has an empty folder ready for your content. If you change the name of the mydoc folder or want to add another product folder, you will need to learn to connect them by configuring several of the .yml and .html files in their various folders. In addition to populating the mydoc folder you will want to provide an index.md or index.html file in the root which will serve as a landing page. (Note: The folders “Product 1” and “Product 2” are already connected too.) (Note: jekyll won’t try to generate pages in  folders with names that start with underscores.)</p>
-
-<h3 id="configuration">Configuration</h3>
-<p>The template was designed so that no configuration is required to generate the empty site. But there are many placeholders for you to enter your project specific names and titles. The most important configuration files are listed in this section and the following shell command can help you locate them as well:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>grep -ri "your" *  
-</code></pre>
-</div>
-
-<p>You can use your favorite command line or graphical tools to carefully edit the .yml and .html files to substitute your data. You shouldn’t need it, but if you want more instructions on how to use the configuration files to change the behavior of the site, refer to Tom Johnson’s version 5.0 documentation as described at the top of this page. Here is a list of files that you will want to understand first:</p>
-
-<ul>
-  <li><a href="https://github.com/gdmosher/RDT5/blob/empty/_config.yml">_config.yml</a></li>
-  <li><a href="https://github.com/gdmosher/RDT5/blob/empty/_data/topnav.yml">_data/topnav.yml</a></li>
-  <li><a href="https://github.com/gdmosher/RDT5/blob/empty/_data/sidebars/mydoc_sidebar.yml">_data/sidebars/mydoc_sidebar.yml</a><br />
-Note: For reference, these links point to the template online. To make changes you will edit in your copy of the repository.</li>
-</ul>
-
-<p>if you want to create a new product folder, beyond the three already provided or with a name you like better, you will need to:</p>
-
-<ul>
-  <li>create the new folder in the root of the repo to hold your new markdown pages,</li>
-  <li>create a new prodName_sidebar.yml in _data/sidebars,</li>
-  <li>hook it up in <a href="https://github.com/gdmosher/RDT5/blob/empty/_includes/custom/sidebarconfigs.html">_includes/custom/sidebarconfigs.html</a>,</li>
-  <li>and possibly configure some defaults for it in _config.yml</li>
-</ul>
-
-<h3 id="automation">Automation</h3>
-<p>Several shell scripts are provided in the root to help you learn to use the system and make some repetitive steps easier. It’s always a good idea to make a backup before attempting new automation steps.</p>
-
-<p>The command “jekyll build” will generate the site into the folder called _site. “jekyll serve” will build the site and serve it on the localhost <a href="http://127.0.0.1:4005/RDT5/">http://127.0.0.1:4005/RDT5/</a> where RDT5 is the name of the repo folder and is the baseurl: in the _config.yml configuration file.</p>
-
-<p>Next we have three scripts that will push your site out to the web. These are buildAll.sh, pushSite.sh, and publish.sh which are discussed in the section <a href="#publish-it">Publish It</a>. Another level of automation called md2jekyllDT5 that folds your documents into sections will be discussed later in the section <a href="#adding-your-content">Adding Your Content</a>.</p>
-
-<h3 id="frontmatter">Frontmatter</h3>
-<p>Documentation Theme frontmatter must be added to each .md file so that the theme can generate the links from the sidebar to the pages. If you use the md2jekyllDT5 script described in the next section, it will generate the sidebar and permalink frontmatter for you. The title is mandatory and it is your responsibility to place it in your .md files. Keywords and comments are optional, but you should use them as place holders. Currently the md2jekyllDT5 script inserts the sidebar/permalink frontmatter at lines 5-6  in your .md file and does not check that it falls inside the “- - -“ fences. The frontmatter needs to be placed at the very beginning of the file and looks like this:<br />
-    ---<br />
-    title: Your Title<br />
-    keywords:<br />
-    comments:<br />
-    sidebar: mydoc_sidebar<br />
-    permalink: /folder/page/<br />
-    ---</p>
-
-<p>If you have some files that don’t use the md2jekyllDT5 script, you should add the sidebar and permalink frontmatter manually to your document and also to the mydoc_sidebar.yml. Permalinks are case sensitive and should generally contain the foldername and pagename with slashes before and after as shown above.</p>
-
-<h3 id="adding-your-content">Adding Your Content</h3>
-<p>Jekyll expects your content in markdown (.md) format and the Documentation Theme expects it in the folder called mydocs, so just drop your content in there, add the frontmatter to the pages and the mydoc_sidebar.yml, and then type jekyll serve to generate the site. Done!</p>
-
-<p>But there is more automation available if you want it. We copy in a folder called _vignettes that contains many filename.knit.md files that are created by kniting in R with the option keep intermediate (or is it don’t cleanup?). These files are submitted to the <a href="https://github.com/gdmosher/RDT5/blob/gh-pages/_vignettes/md2jekyllDT5.R">md2jekyllDT5.R</a> script, also located in the _vignettes folder, to be folded into sections the output of which goes into the mydoc folder with their corresponding images. These *.knit.md files are each kept in their own folder. When starting the md2jekyllDT5 script you must pass in the several parameters. Find the parameters and an example of their use in the last few lines of the md2jekyllDT5.R script itself. I run the script in RStudio, but it can just as easily be run from the R command line.</p>
-
-<h3 id="publish-it">Publish It</h3>
-<p>Finally, we have three scripts that will push your site out to the web. These are: <a href="https://github.com/gdmosher/RDT5/blob/empty/buildAll.sh">buildAll.sh</a>,   <a href="https://github.com/gdmosher/RDT5/blob/empty/pushSite.sh">pushSite.sh</a>,  and  <a href="https://github.com/gdmosher/RDT5/blob/empty/publish.sh">publish.sh</a></p>
-
-<p>Please open the files and understand the commands inside before running them, because they may make significant changes to your repository. Determine which format and destination is best for you and then stick with it because they are not specifically designed to be mixed.</p>
-
+  <p>Sorry, but the page you were trying to view does not exist — perhaps you can try searching for it.</p>
 
 
 <div class="tags">

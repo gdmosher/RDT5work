@@ -3,17 +3,29 @@
 topnav:
 - title: Topnav
   items:
-    - title: News
-      url: /news/
+##    - title: News
+##      url: /news/
+    - title: Home
+      external_url: http://girke.bioinformatics.ucr.edu/
+##    - title: R & Bioconductor
+##      external_url: http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual
+##    - title: R Programming
+##      external_url: http://manuals.bioinformatics.ucr.edu/home/programming-in-r
+    - title: vimR
+      external_url: http://manuals.bioinformatics.ucr.edu/home/programming-in-r/vim-r
+##    - title: Linux Cluster
+##      external_url: http://manuals.bioinformatics.ucr.edu/home/hpc
+    - title: IIGB
+      external_url: http://www.genomics.ucr.edu/
 
 #Topnav dropdowns
 topnav_dropdowns:
 - title: Topnav dropdowns
   folders:
-    - title: Jekyll Resources
+    - title: Your Resources
       folderitems:
         - title: Github Repo
-          external_url: https://github.com/tomjohnson1492/documentation-theme-jekyll
+          external_url: https://github.com/YourGitHubID/YourRepoName
         - title: Jekyll Talk
           external_url: https://talk.jekyllrb.com
         - title: Jekyll documentation
@@ -24,8 +36,8 @@ topnav_dropdowns:
           external_url: http://idratherbewriting.com/category-jekyll/
     - title: Products
       folderitems:
-        - title: Jekyll Documentation Theme
-          url: /mydoc_introduction/
+        - title: Your Home Page
+          url: /
         - title: Product 1
           url: /p1_landing_page/
         - title: Product 2
