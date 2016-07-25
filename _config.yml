@@ -3,7 +3,7 @@ permalink: /:year/:month/:day/:title/
 url: http://YourDomainName.com
 # where you plan to publish your site
 # baseurl: "/YourGithubRepositoryName"
-baseurl: "/RDT5"
+baseurl: "/RDT5work"
 ## any subdirectory that appears after the domain where you're publishing your site
 output: web
 # this property is useful for conditional filtering of content that is separate from the PDF.
