@@ -2,8 +2,8 @@
 
 entries:
 - title: sidebar
-  product: Your Product
-  version: 1.0
+  product: UCR Doc Theme
+  version: 5.0
   folders:
 
   - title:
@@ -19,11 +19,12 @@ entries:
       output: pdf
       type: frontmatter
 
-  - title: Overview
+
+  - title: Your First Section
     output: web, pdf
     folderitems:
 
-    - title: Get started
+    - title: Your Home Page
       url: /
       type: homepage
       output: web, pdf
@@ -33,207 +34,523 @@ entries:
       type: homepage
       output: web, pdf
 
-  - title: Introduction
+  - title: Introduction to R
     output: web, pdf
     folderitems:
 
     - title: 1. Overview
-      url: /mydoc/mydoc_Rbasics_01/
+      url: /mydoc/Rbasics_01/
       output: web
 
     - title: 2. R Package Repositories
-      url: /mydoc/mydoc_Rbasics_02/
+      url: /mydoc/Rbasics_02/
       output: web
 
     - title: 3. Installation of R and Add-on Packages
-      url: /mydoc/mydoc_Rbasics_03/
+      url: /mydoc/Rbasics_03/
       output: web
 
     - title: 4. Getting Around
-      url: /mydoc/mydoc_Rbasics_04/
+      url: /mydoc/Rbasics_04/
       output: web
 
     - title: 5. Basic Syntax
-      url: /mydoc/mydoc_Rbasics_05/
+      url: /mydoc/Rbasics_05/
       output: web
 
     - title: 6. Data Types 
-      url: /mydoc/mydoc_Rbasics_06/
+      url: /mydoc/Rbasics_06/
       output: web
 
     - title: 7. Data objects
-      url: /mydoc/mydoc_Rbasics_07/
+      url: /mydoc/Rbasics_07/
       output: web
 
     - title: 8. Important Utilities
-      url: /mydoc/mydoc_Rbasics_08/
+      url: /mydoc/Rbasics_08/
       output: web
 
     - title: 9. Operators and Calculations
-      url: /mydoc/mydoc_Rbasics_09/
+      url: /mydoc/Rbasics_09/
       output: web
 
     - title: 10. Reading and Writing External Data
-      url: /mydoc/mydoc_Rbasics_10/
+      url: /mydoc/Rbasics_10/
       output: web
 
     - title: 11. Useful R Functions
-      url: /mydoc/mydoc_Rbasics_11/
+      url: /mydoc/Rbasics_11/
       output: web
 
     - title: 12. SQLite Databases
-      url: /mydoc/mydoc_Rbasics_12/
+      url: /mydoc/Rbasics_12/
       output: web
 
     - title: 13. Graphics in R
-      url: /mydoc/mydoc_Rbasics_13/
+      url: /mydoc/Rbasics_13/
       output: web
 
     - title: 14. Analysis Routine
-      url: /mydoc/mydoc_Rbasics_14/
+      url: /mydoc/Rbasics_14/
       output: web
 
     - title: 15. R Markdown
-      url: /mydoc/mydoc_Rbasics_15/
+      url: /mydoc/Rbasics_15/
       output: web
 
     - title: 16. Session Info
-      url: /mydoc/mydoc_Rbasics_16/
+      url: /mydoc/Rbasics_16/
       output: web
 
     - title: 17. References
-      url: /mydoc/mydoc_Rbasics_17/
+      url: /mydoc/Rbasics_17/
       output: web
 
-  - title: R
+  - title: Graphics and Data Visualization in R
     output: web, pdf
     folderitems:
 
     - title: 1. Overview
-      url: /mydoc/mydoc_Rgraphics_1/
+      url: /mydoc/Rgraphics_1/
       output: web
 
     - title: 2. Base Graphics
-      url: /mydoc/mydoc_Rgraphics_2/
+      url: /mydoc/Rgraphics_2/
       output: web
 
     - title: 3. Grid Graphics
-      url: /mydoc/mydoc_Rgraphics_3/
+      url: /mydoc/Rgraphics_3/
       output: web
 
     - title: 4. lattice Graphics
-      url: /mydoc/mydoc_Rgraphics_4/
+      url: /mydoc/Rgraphics_4/
       output: web
 
     - title: 5. ggplot2 Graphics
-      url: /mydoc/mydoc_Rgraphics_5/
+      url: /mydoc/Rgraphics_5/
       output: web
 
     - title: 6. Specialty Graphics
-      url: /mydoc/mydoc_Rgraphics_6/
+      url: /mydoc/Rgraphics_6/
       output: web
 
     - title: 7. Genome Graphics
-      url: /mydoc/mydoc_Rgraphics_7/
+      url: /mydoc/Rgraphics_7/
       output: web
 
     - title: 8. References
-      url: /mydoc/mydoc_Rgraphics_8/
+      url: /mydoc/Rgraphics_8/
       output: web
 
-  - title: ChemmineR
+  - title: Cluster Analysis in R
     output: web, pdf
     folderitems:
 
     - title: 1. Introduction
-      url: /mydoc/mydoc_ChemmineR_01/
+      url: /mydoc/Rclustering_1/
+      output: web
+
+    - title: 2. Data Preprocessing
+      url: /mydoc/Rclustering_2/
+      output: web
+
+    - title: 3. Clustering Algorithms
+      url: /mydoc/Rclustering_3/
+      output: web
+
+    - title: 4. Clustering Exercises
+      url: /mydoc/Rclustering_4/
+      output: web
+
+    - title: 5. Version Information
+      url: /mydoc/Rclustering_5/
+      output: web
+
+    - title: 6. References
+      url: /mydoc/Rclustering_6/
+      output: web
+
+  - title: Programming in R
+    output: web, pdf
+    folderitems:
+
+    - title: 1. Overview
+      url: /mydoc/Programming_in_R_01/
+      output: web
+
+    - title: 2. Control Structures
+      url: /mydoc/Programming_in_R_02/
+      output: web
+
+    - title: 3. Loops
+      url: /mydoc/Programming_in_R_03/
+      output: web
+
+    - title: 4. Functions
+      url: /mydoc/Programming_in_R_04/
+      output: web
+
+    - title: 5. Useful Utilities
+      url: /mydoc/Programming_in_R_05/
+      output: web
+
+    - title: 6. Running R Scripts
+      url: /mydoc/Programming_in_R_06/
+      output: web
+
+    - title: 7. Building R Packages
+      url: /mydoc/Programming_in_R_07/
+      output: web
+
+    - title: 8. Programming Exercises
+      url: /mydoc/Programming_in_R_08/
+      output: web
+
+    - title: 9. Homework 5
+      url: /mydoc/Programming_in_R_09/
+      output: web
+
+    - title: 10. Session Info
+      url: /mydoc/Programming_in_R_10/
+      output: web
+
+    - title: 11. References
+      url: /mydoc/Programming_in_R_11/
+      output: web
+
+  - title: NGS Analysis Basics
+    output: web, pdf
+    folderitems:
+
+    - title: 1. Overview
+      url: /mydoc/Rsequences_01/
+      output: web
+
+    - title: 2. Package Requirements
+      url: /mydoc/Rsequences_02/
+      output: web
+
+    - title: 3. Strings in R Base
+      url: /mydoc/Rsequences_03/
+      output: web
+
+    - title: 4. Sequences in Bioconductor
+      url: /mydoc/Rsequences_04/
+      output: web
+
+    - title: 5. NGS Sequences
+      url: /mydoc/Rsequences_05/
+      output: web
+
+    - title: 6. Range Operations  
+      url: /mydoc/Rsequences_06/
+      output: web
+
+    - title: 7. Transcript Ranges
+      url: /mydoc/Rsequences_07/
+      output: web
+
+    - title: 8. Homework 6
+      url: /mydoc/Rsequences_08/
+      output: web
+
+    - title: 9. Session Info
+      url: /mydoc/Rsequences_09/
+      output: web
+
+    - title: 10. References
+      url: /mydoc/Rsequences_10/
+      output: web
+
+  - title: Designing and Running NGS Workflows
+    output: web, pdf
+    folderitems:
+
+    - title: 1. Introduction
+      url: /mydoc/systemPipeR_1/
       output: web
 
     - title: 2. Getting Started
-      url: /mydoc/mydoc_ChemmineR_02/
+      url: /mydoc/systemPipeR_2/
+      output: web
+
+    - title: 3. Workflow overview
+      url: /mydoc/systemPipeR_3/
+      output: web
+
+    - title: 4. Workflow templates
+      url: /mydoc/systemPipeR_4/
+      output: web
+
+    - title: 5. Version information
+      url: /mydoc/systemPipeR_5/
+      output: web
+
+    - title: 6. References
+      url: /mydoc/systemPipeR_6/
+      output: web
+
+  - title: RNA-Seq Workflow Template
+    output: web, pdf
+    folderitems:
+
+    - title: 1. Introduction
+      url: /mydoc/systemPipeRNAseq_01/
+      output: web
+
+    - title: 2. Sample definitions and environment settings
+      url: /mydoc/systemPipeRNAseq_02/
+      output: web
+
+    - title: 3. Read preprocessing
+      url: /mydoc/systemPipeRNAseq_03/
+      output: web
+
+    - title: 4. Alignments
+      url: /mydoc/systemPipeRNAseq_04/
+      output: web
+
+    - title: 5. Read quantification per annotation range
+      url: /mydoc/systemPipeRNAseq_05/
+      output: web
+
+    - title: 6. Analysis of differentially expressed genes with edgeR 
+      url: /mydoc/systemPipeRNAseq_06/
+      output: web
+
+    - title: 7. GO term enrichment analysis of DEGs
+      url: /mydoc/systemPipeRNAseq_07/
+      output: web
+
+    - title: 8. Clustering and heat maps
+      url: /mydoc/systemPipeRNAseq_08/
+      output: web
+
+    - title: 9. Version Information
+      url: /mydoc/systemPipeRNAseq_09/
+      output: web
+
+    - title: 10. Funding
+      url: /mydoc/systemPipeRNAseq_10/
+      output: web
+
+    - title: 11. References
+      url: /mydoc/systemPipeRNAseq_11/
+      output: web
+
+  - title: ChIP-Seq Workflow Template
+    output: web, pdf
+    folderitems:
+
+    - title: 1. Introduction
+      url: /mydoc/systemPipeChIPseq_01/
+      output: web
+
+    - title: 2. Load workflow environment
+      url: /mydoc/systemPipeChIPseq_02/
+      output: web
+
+    - title: 3. Read preprocessing
+      url: /mydoc/systemPipeChIPseq_03/
+      output: web
+
+    - title: 4. Alignments
+      url: /mydoc/systemPipeChIPseq_04/
+      output: web
+
+    - title: 5. Utilities for coverage data
+      url: /mydoc/systemPipeChIPseq_05/
+      output: web
+
+    - title: 6. Peak calling with MACS2
+      url: /mydoc/systemPipeChIPseq_06/
+      output: web
+
+    - title: 7. Annotate peaks with genomic context
+      url: /mydoc/systemPipeChIPseq_07/
+      output: web
+
+    - title: 8. Count reads overlapping peaks
+      url: /mydoc/systemPipeChIPseq_08/
+      output: web
+
+    - title: 9. Differential binding analysis
+      url: /mydoc/systemPipeChIPseq_09/
+      output: web
+
+    - title: 10. GO term enrichment analysis
+      url: /mydoc/systemPipeChIPseq_10/
+      output: web
+
+    - title: 11. Motif analysis
+      url: /mydoc/systemPipeChIPseq_11/
+      output: web
+
+    - title: 12. Version Information
+      url: /mydoc/systemPipeChIPseq_12/
+      output: web
+
+    - title: 13. Funding
+      url: /mydoc/systemPipeChIPseq_13/
+      output: web
+
+    - title: 14. References
+      url: /mydoc/systemPipeChIPseq_14/
+      output: web
+
+  - title: VAR-Seq Workflow Template
+    output: web, pdf
+    folderitems:
+
+    - title: 1. Introduction
+      url: /mydoc/systemPipeVARseq_01/
+      output: web
+
+    - title: 2. Load workflow environment
+      url: /mydoc/systemPipeVARseq_02/
+      output: web
+
+    - title: 3. Read preprocessing
+      url: /mydoc/systemPipeVARseq_03/
+      output: web
+
+    - title: 4. Alignments
+      url: /mydoc/systemPipeVARseq_04/
+      output: web
+
+    - title: 5. Variant calling
+      url: /mydoc/systemPipeVARseq_05/
+      output: web
+
+    - title: 6. Filter variants
+      url: /mydoc/systemPipeVARseq_06/
+      output: web
+
+    - title: 7. Annotate filtered variants
+      url: /mydoc/systemPipeVARseq_07/
+      output: web
+
+    - title: 8. Combine annotation results among samples
+      url: /mydoc/systemPipeVARseq_08/
+      output: web
+
+    - title: 9. Summary statistics of variants
+      url: /mydoc/systemPipeVARseq_09/
+      output: web
+
+    - title: 10. Venn diagram of variants
+      url: /mydoc/systemPipeVARseq_10/
+      output: web
+
+    - title: 11. Plot variants programmatically 
+      url: /mydoc/systemPipeVARseq_11/
+      output: web
+
+    - title: 12. Version Information
+      url: /mydoc/systemPipeVARseq_12/
+      output: web
+
+    - title: 13. Funding
+      url: /mydoc/systemPipeVARseq_13/
+      output: web
+
+    - title: 14. References
+      url: /mydoc/systemPipeVARseq_14/
+      output: web
+
+  - title: ChemmineR - Cheminformatics Toolkit for R
+    output: web, pdf
+    folderitems:
+
+    - title: 1. Introduction
+      url: /mydoc/ChemmineR_01/
+      output: web
+
+    - title: 2. Getting Started
+      url: /mydoc/ChemmineR_02/
       output: web
 
     - title: 3. OpenBabel Functions
-      url: /mydoc/mydoc_ChemmineR_03/
+      url: /mydoc/ChemmineR_03/
       output: web
 
     - title: 4. Overview of Classes and Functions
-      url: /mydoc/mydoc_ChemmineR_04/
+      url: /mydoc/ChemmineR_04/
       output: web
 
     - title: 5. Import of Compounds
-      url: /mydoc/mydoc_ChemmineR_05/
+      url: /mydoc/ChemmineR_05/
       output: web
 
     - title: 6. Export of Compounds
-      url: /mydoc/mydoc_ChemmineR_06/
+      url: /mydoc/ChemmineR_06/
       output: web
 
     - title: 7. Format Interconversions
-      url: /mydoc/mydoc_ChemmineR_07/
+      url: /mydoc/ChemmineR_07/
       output: web
 
     - title: 8. Splitting SD Files
-      url: /mydoc/mydoc_ChemmineR_08/
+      url: /mydoc/ChemmineR_08/
       output: web
 
     - title: 9. Streaming Through Large SD Files
-      url: /mydoc/mydoc_ChemmineR_09/
+      url: /mydoc/ChemmineR_09/
       output: web
 
     - title: 10. Storing Compounds in an SQL Database
-      url: /mydoc/mydoc_ChemmineR_10/
+      url: /mydoc/ChemmineR_10/
       output: web
 
     - title: 11. Working with SDF/SDFset Classes
-      url: /mydoc/mydoc_ChemmineR_11/
+      url: /mydoc/ChemmineR_11/
       output: web
 
     - title: 12. Molecular Property Functions (Physicochemical Descriptors)
-      url: /mydoc/mydoc_ChemmineR_12/
+      url: /mydoc/ChemmineR_12/
       output: web
 
     - title: 13. Bond Matrices
-      url: /mydoc/mydoc_ChemmineR_13/
+      url: /mydoc/ChemmineR_13/
       output: web
 
     - title: 14. Charges and Missing Hydrogens
-      url: /mydoc/mydoc_ChemmineR_14/
+      url: /mydoc/ChemmineR_14/
       output: web
 
     - title: 15. Ring Perception and Aromaticity Assignment
-      url: /mydoc/mydoc_ChemmineR_15/
+      url: /mydoc/ChemmineR_15/
       output: web
 
     - title: 16. Rendering Chemical Structure Images
-      url: /mydoc/mydoc_ChemmineR_16/
+      url: /mydoc/ChemmineR_16/
       output: web
 
     - title: 17. Similarity Comparisons and Searching
-      url: /mydoc/mydoc_ChemmineR_17/
+      url: /mydoc/ChemmineR_17/
       output: web
 
     - title: 18. Clustering
-      url: /mydoc/mydoc_ChemmineR_18/
+      url: /mydoc/ChemmineR_18/
       output: web
 
     - title: 19. Searching PubChem
-      url: /mydoc/mydoc_ChemmineR_19/
+      url: /mydoc/ChemmineR_19/
       output: web
 
     - title: 20. ChemMine Tools R Interface
-      url: /mydoc/mydoc_ChemmineR_20/
+      url: /mydoc/ChemmineR_20/
       output: web
 
     - title: 21. Version Information
-      url: /mydoc/mydoc_ChemmineR_21/
+      url: /mydoc/ChemmineR_21/
       output: web
 
     - title: 22. Funding
-      url: /mydoc/mydoc_ChemmineR_22/
+      url: /mydoc/ChemmineR_22/
       output: web
 
     - title: 23. References
-      url: /mydoc/mydoc_ChemmineR_23/
+      url: /mydoc/ChemmineR_23/
       output: web
 
