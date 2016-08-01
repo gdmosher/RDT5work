@@ -176,3 +176,118 @@ Finally, we have three scripts that will push your site out to the web. These ar
 
 Please open the files and understand the commands inside before running them, because they may make significant changes to your repository. Determine which format and destination is best for you and then stick with it because they are not specifically designed to be mixed.
 
+
+## Adding a new page
+
+### Create page
+The easiest is usually to copy an existing page in `\mydoc` and then make the necessary 
+changes to its Jekyll front matter section and content.
+
+### Sidebar and URL configuration
+Next, the new page needs to be registered properly in the sidebar configuration 
+file.
+
+{% highlight bash %}
+vim _data/sidebars/mydoc_sidebar.yml
+{% endhighlight %}
+
+After this the new page should be viewable in the local preview of your
+browser.  This requires a running session of `jekyll serve ...` in the root
+directory of the repository as shown above.
+
+### Commit to GitHub
+Similar as above add, commit and push changes to the `gh-pages` branch 
+of the local and remote repositories or just run `buildAll.sh`.
+
+{% highlight bash %}
+git add -A :/
+git commit -am "some edits"
+git push -u origin gh-pages
+{% endhighlight %}
+
+## Set theme color
+Pick you favorite color [here](http://www.december.com/html/spec/color3.html), then apply changes at the proper 
+lines in `./css/theme-blue.css`. This task can be greatly simplified by using `vimdiff`:
+
+{% highlight bash %}
+vimdiff css/theme-blue.css css/theme-blue_orig.css
+{% endhighlight %}
+
+## R markdown integration
+
+(1) Write R markdown vignette (`*.Rmd` file) in `./_vignettes` directory (*e.g.* `./_vignettes/Rbasics`).
+
+(2) Render vignette to `.md` and `.html` files with `rmarkdown::render()`.
+
+(3) Append `.md` file (here `Rbasics.knit.md`) to corresponding `.md` file in `./mydoc` directory.
+
+(4) Remove front matter genereted by R markdown, but leave the one required for Jekyll
+
+(5) Replace chode chunk tags to the ones required by Jekyll Doc Theme
+
+(6) Move images into proper directory and adjust their path in the `.md` file
+
+Run steps (2)-(6) with one command using the `render()` function and the `md2jekyll.R` script:
+
+{% highlight bash %}
+echo "rmarkdown::render('Rbasics.Rmd', clean=FALSE)" | R --slave; R CMD Stangle Rbasics.Rmd; Rscript ../md2jekyll.R Rbasics.knit.md 3
+{% endhighlight %}
+
+## Usage of custom domain
+
++ Register a domain name with a provider such as [GoogleDomains](https://domains.google) or [GoDaddy](https://www.godaddy.com). 
++ Next, configure the domain settings on your provider's website to point to GitHub pages. Sample instructions for GoogleDomains and GitHub pages are given on [Curtis Larson's Blog](http://www.curtismlarson.com/blog/2015/04/12/github-pages-google-domains/). Note, if you run a web site under the `gh-pages` branch of a GitHub project repository then you will still just use `username.github.io.` under the CNAME entry (see table below) without appending the name of the project repository. Also adding a dot at the end of this entry is important. The table below is an example how the settings would look like under the `DNS` tab on GoogleDomains. The two IP addresses in the first two lines of the table should be the same for all sites hosted on GitHub.
+
+
+    |Name   |Type     | TTL | Data                |
+    |---------------------------------------------|
+    |   @   |    A    | 1h  | 192.30.252.153      |
+    |       |         |     | 192.30.252.154      |
+    |  www  |  CNAME  | 1h  | username.github.io. |
+    |---------------------------------------------|
+
+
++ Subsequently, add the domain name (_e.g._ `mydomain.org`) associated with this entry to the CNAME file in the `gh-pages` branch of your GitHub project repository. 
++ Very important, if you experience any rendering problems on GitHub, check whether the `_config.yml` file of your Jekyll site contains a line starting with `baseurl: "..."`. If so remove this line or the page will not render properly on GitHub. 
+
+## Favicon icon
+
+A favicon is an icon displayed in the web site tabs of a browser or next to the site name in a 
+bookmark list. The source image can be generted with most graphics programs (_e.g._ in SVG 
+format in Inkscape). To generate the final favicon, the image needs to be exported in bitmap format
+(_e.g._ PNG format) to a file. Subsequently, this file is converted to the final `favicon.ico` file 
+using one of the many favicon generation tools such as [FavIcon Generator](http://tools.dynamicdrive.com/favicon). 
+The `favicon.ico` file is then placed into the `images` directory of the Jekyll Doc Theme. 
+
+
+## Useful utilities
+
+### Site-wide configurations
+Edit this file accordingly.
+
+{% highlight bash %}
+vim _config.yml
+{% endhighlight %}
+
+### Change sidebar behavior
+The fixed sidebar is a nice feature of this theme. However, if there are too many
+section entries then it may be desirable to switch contitionally to a floating behavior 
+depending on the size of the viewport available on a system. This can be achieved by 
+changing the height value in 'js/customscripts.js' to a larger value (_e.g._ 800 to 1200): 
+
+{% highlight bash %}
+if (h > 800) {
+    $( "#mysidebar" ).attr("class", "nav affix");
+}
+{% endhighlight %}
+
+### Check differences in directories
+One can also double-check by downloading the changes from GitHub and then run `diff`
+
+{% highlight bash %}
+diff -r ~/Dropbox/Websites/doc_outputs/mydoc/designers/ ~/Dropbox/Websites/manuals/
+{% endhighlight %}
+
+
+
+

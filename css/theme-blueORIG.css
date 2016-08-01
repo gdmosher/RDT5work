@@ -3,15 +3,9 @@
     border-left: 5px solid #ED1951;
     font-size:16px;
 }
-/* 808080 is dark gray */
-/* 000000 is black */
-/* 347DBE is moderate blue */
-/* 3a6aa6 is dark moderate blue ThG */
-/* 26466D is very dark blue ThG */
-/* 248ec2 is strong blue */
-/* h3 was #ED1951 red */
-/* http://www.colorhexa.com/808080 */
-h3 {color: #248ec2; }
+
+
+h3 {color: #ED1951; }
 h4 {color: #808080; }
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
@@ -99,22 +93,11 @@ div.sidebarTitle {
 }
 
 li.sidebarTitle {
-    margin-top: 40px;
+    margin-top:40px;
     font-weight:normal;
     font-size:130%;
     color: #ED1951;
     margin-bottom:10px;
     margin-left: 5px;
-}
 
-li.sidebarTitle {
-    font-size: 300%;
-    font-weight: bold;
-    color: #248ec2;
-    font-family: monospace;
-    text-align: center;
-    line-height: 40px;
-    margin: 20px 0px;
-    display: block;
 }
-
