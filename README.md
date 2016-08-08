@@ -6,7 +6,7 @@ type: homepage
 ---
 ## UCR Documentation Theme
 
-The UCR Documentation Theme is making reproducible research more accessible for all labs on campus. Simple to setup and maintain, easy to publish at github-pages, this theme supports advanced data publishing technology including R, R-Markdown and knitr. Development of the theme is supervised by [Thomas Girke](mailto:thomas.girke@ucr.edu) at UCR's IGGB/biocluster? The theme is supported by [Gordon David Mosher](mailto:gmosh001@ucr.edu) and for the time being, includes free onsite consultation and training to help you adopt the theme, import your data, and get started with markdown.
+The UCR Documentation Theme is making reproducible research more accessible for all labs on campus. Simple to setup and maintain, easy to publish at github-pages, this theme supports advanced data publishing technology including R, R-Markdown and knitr. Development of the theme is supervised by [Thomas Girke](mailto:thomas.girke@ucr.edu) at UC Riverside. The theme is supported by [Gordon David Mosher](mailto:gmosh001@ucr.edu) and for the time being, includes free onsite consultation and training to help you adopt the theme, import your data, and get started with markdown.
 
 This theme is based on Tom Johnson's Jekyll Documentation theme version 5.0
 
@@ -14,11 +14,27 @@ This theme is based on Tom Johnson's Jekyll Documentation theme version 5.0
 
 The base theme continues to evolve here: [http://idratherbewriting.com/documentation-theme-jekyll/](http://idratherbewriting.com/documentation-theme-jekyll/) The instructions for the base theme 5.0 can be found by invoking "jekyll serve" in the root of the ORIG branch of this repository.
 
+## Features
 
+-  Markdown - No need to learn html. [Markdown Cheatsheet](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf) is all you need to start.
+-  UCR Doc Theme - contains headers and footers powered by [Liquid](https://shopify.github.io/liquid/) for a professional looking site.
+-  [Integrate R Markdown](#r-markdown-integration) - start with your code and data
+-  Literate Data Science - human readable framework for code and data
+-  Reproducible Research - easily regenerate your report when underlying data changes
+-  Supports Pandoc and LaTeX - based on proven technologies
+
+
+## Basics & Caveats
+
+-  The generated _site must run under jekyll serve because of the permalink structure. This can be adjusted if running outside jekyll serve is important to you.
+-  You can use your own custom domain - see advanced notes [here](#usage-of-custom-domain)
+-  You can submit .html as well as .md files. All content is copied to the generated _site.
+-  The .md files must contain at least empty frontmatter or jekyll won't generate a page for it.
+-  Folder and filenames prefixed by "_" underscore are not generated.
 
 ## Getting started
 
-These instructions are specific to linux, but can be adapted to Windows or OSX.
+These instructions are specific to linux, but can be adapted to Windows or OS X.
 
 Adding your content is one of the last steps in this tutorial. Follow along in order to get a top down view of the complete process.
 
@@ -27,7 +43,7 @@ Adding your content is one of the last steps in this tutorial. Follow along in o
 To use this tool chain you will need to have already installed [git](https://help.github.com/articles/set-up-git/) and [jekyll](https://jekyllrb.com/docs/installation/). \\
 If you are lucky, and using linux, the following commands will take care of that for you:
 
-```
+```{bash}
 sudo -i
 apt-get install git
 git config --global user.name "YOUR NAME"
@@ -38,7 +54,7 @@ gem install jekyll  #or apt-get install jekyll
 To use the md2jekyllDT5 script to fold your files into sections you will also need [R](https://www.r-project.org/) and optionally [RStudio](https://www.rstudio.com/home/).\\
 First, get R
 
-```
+```{bash}
 sudo apt-get install r-base #installs R
 ```
 
@@ -50,7 +66,7 @@ Additional help from [CS UCLA](http://web.cs.ucla.edu/~gulzar/rstudio/)
 
 ### Clone or download the template
 
-To facilitate use this theme as a template we have created a striped down configuration in the "gh-pages" branch. \\
+To facilitate use of this theme as a template we have created a striped down configuration in the "gh-pages" branch. \\
 To get your copy
 
 - Note: Keeping your repo in a Dropbox folder protects your files and makes them accessible from your other computers!
@@ -58,8 +74,8 @@ To get your copy
 - Open your shell and navigate to a folder on your computer where you want to create it,  
     then enter these commands to clone it and checkout the branch called "gh-pages":  
   
-```
-## Using this method the .git folder will exist although it may be hidden
+```{bash}
+## Using this method the .git repository folder will exist although it may be hidden
 
 git clone https://github.com/gdmosher/RDT5.git RDT5
 cd RDT5
@@ -84,10 +100,10 @@ git checkout gh-pages #to open the gh-pages branch as a template
 -   END of git init steps  
 
 
-As you work in git be sure to stash or commit your changes before changing branches so your work doesn't get mixed up.
-If you are new to git, this is a great time to create a branch for your work:
+As you work in git be sure to stash or commit your changes before changing branches so your work doesn't get mixed up. Untracked files show up in all branches.
+If you are new to git, this is a great time to create a branch for your work, but for simplicity work in the gh-pages branch.
 
-```
+```{bash}
 ##   You can skip this step too, because the template is already in the gh-pages branch
 ##git checkout -b gh-pages  
 ##   Note: The name of the branch doesn't matter for now,
@@ -97,30 +113,36 @@ If you are new to git, this is a great time to create a branch for your work:
     
 The site can be generated now, local and empty, if you want to test it.
 
-```
+```{bash}
+git status   #to confirm you are in the root and on the gh-pages branch
 jekyll serve
 ##  jekyll will generate an url for you to paste into your browser's address bar
+##  You can leave the server running as long as you want, it will automatically regenerate incrementally
+##  Press <Ctrl-C> when you want to stop it.
 ```
 
 Before you can push it to github you will need to create an empty repo at github.
 
 -   at github.com login as yourself or create a free account
--   follow their instructions to create an empty repo
+-   "click the new button" and follow their instructions to create an empty repo
     -   do not add a README, License or .gitignore at this time
--   done
+    -   click "Create Repository"
+-   on the next screen, you can take a shortcut for the next step by clicking the Copy to Clipboard icon next to Push an Existing Repo from the Command Line
 
 To connect your clone of RDT5 to your new repo at github
 
-```
-git remote add origin https://github.com/YourGithubID/YourRepoName.git
+```{bash}
+git status #confirm that you are in the root
+git remote remove origin #this disconnects you from the template repo so you can connect to your own
+git remote add origin https://github.com/YourGithubID/YourRepoName.git  #you may paste from clipboard
 git remote -v    #to verify
 ```
 -   when you are ready to push,  study the available publishing scripts [buildAll.sh](https://github.com/gdmosher/RDT5/blob/gh-pages/buildAll.sh) and [pushSite.sh](https://github.com/gdmosher/RDT5/blob/gh-pages/pushSite.sh)
 
 -   then use one of the scripts or the command:
 
-```
-git push -u origin   #to push the branch you are on
+```{bash}
+git push -u origin gh-pages  #to push the gh-pages branch
 ```
 
 ### Architecture
@@ -129,8 +151,8 @@ Brief introduction to the architecture of the repository. The SIDEBAR is one of 
 ### Configuration
 The template was designed so that no configuration is required to generate the empty site. But there are many placeholders for you to enter your project specific names and titles. The most important configuration files are listed in this section and the following shell command can help you locate them as well:  
 
-```
-grep -ri "your" *  
+```{bash}
+grep -ri "your" * | more  
 ```
 
 You can use your favorite command line or graphical tools to carefully edit the .yml and .html files to substitute your data. You shouldn't need it, but if you want more instructions on how to use the configuration files to change the behavior of the site, refer to Tom Johnson's version 5.0 documentation as described at the top of this page. Here is a list of files that you will want to understand first:  
@@ -230,7 +252,8 @@ vimdiff css/theme-blue.css css/theme-blue_orig.css
 Run steps (2)-(6) with one command using the `render()` function and the `md2jekyll.R` script:
 
 {% highlight bash %}
-echo "rmarkdown::render('Rbasics.Rmd', clean=FALSE)" | R --slave; R CMD Stangle Rbasics.Rmd; Rscript ../md2jekyll.R Rbasics.knit.md 3
+echo "rmarkdown::render('Rbasics.Rmd', clean=FALSE)" | R --slave; R CMD Stangle Rbasics.Rmd;  
+Rscript ../md2jekyll.R Rbasics.knit.md 3
 {% endhighlight %}
 
 ## Usage of custom domain
